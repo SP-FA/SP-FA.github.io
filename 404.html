@@ -425,7 +425,7 @@
     
         
             
-                <a href="/assets/bilibili_QRcode.png" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+                <a href="https://space.bilibili.com/277470241" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
             
         
     
@@ -609,7 +609,23 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="./LateXCDN.js"></script>
+
+</body>
 </html>
 
 

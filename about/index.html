@@ -20,21 +20,21 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="这是一段自我介绍。">
+    <meta name="description" content="这是一段自我介绍。  大家好，我是 SP-FA。 大家可能听说过 SPFA 这个算法，全名叫做 Shortest path Faster Algorithm，用于计算一张图的单源最短路径。因为我非常喜欢这个算法，所以干脆就以它作为自己的名字了。  碎碎念  之所以专门自己搭建一个博客呢，是为了记一些琐碎的东西，毕竟 CSDN 上已经乱七八糟什么都有了，不如把一些文章搬到这里来的更规整一些。主要是">
 <meta property="og:type" content="website">
-<meta property="og:title" content="自我介绍">
+<meta property="og:title" content="Who am I ?">
 <meta property="og:url" content="https://sp-fa.github.io/about/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这是一段自我介绍。">
+<meta property="og:description" content="这是一段自我介绍。  大家好，我是 SP-FA。 大家可能听说过 SPFA 这个算法，全名叫做 Shortest path Faster Algorithm，用于计算一张图的单源最短路径。因为我非常喜欢这个算法，所以干脆就以它作为自己的名字了。  碎碎念  之所以专门自己搭建一个博客呢，是为了记一些琐碎的东西，毕竟 CSDN 上已经乱七八糟什么都有了，不如把一些文章搬到这里来的更规整一些。主要是">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-07T02:09:34.695Z">
-<meta property="article:modified_time" content="2021-04-07T02:09:34.695Z">
+<meta property="article:published_time" content="2021-04-07T02:37:04.097Z">
+<meta property="article:modified_time" content="2021-04-07T02:37:04.097Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>自我介绍 · 欢迎来到 SP-FA 的博客 ~</title>
+    <title>Who am I ? · 欢迎来到 SP-FA 的博客 ~</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -235,7 +235,7 @@
 
 
 
-height:50vh;
+height:100vh;
 ">
     
     <!-- 主页  -->
@@ -249,7 +249,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            自我介绍
+            Who am I ?
             
         </h1>
         <!-- 副标题 -->
@@ -361,7 +361,18 @@ height:50vh;
             <!-- 不可以删除，否则会调用post的layout  -->
 <main class="main about-page">
     <article class="article-entry">
-        <p>这是一段自我介绍。</p>
+        <blockquote>
+<p>这是一段自我介绍。</p>
+</blockquote>
+<p>大家好，我是 SP-FA。</p>
+<p>大家可能听说过 SPFA 这个算法，全名叫做 <strong>Shortest path Faster Algorithm</strong>，用于计算一张图的单源最短路径。因为我非常喜欢这个算法，所以干脆就以它作为自己的名字了。</p>
+<blockquote>
+<p>碎碎念</p>
+</blockquote>
+<p>之所以专门自己搭建一个博客呢，是为了记一些琐碎的东西，毕竟 CSDN 上已经乱七八糟什么都有了，不如把一些文章搬到这里来的更规整一些。主要是用来给自己看的<del>反正也不会有人看我的博客</del>，所以写的可能会比较随性，基本上处于自己能看懂就好的状态，之后在 CSDN 上的文章会进行细化，为了方便更多的人看。</p>
+<p>长期处于咕咕咕的状态，所以不会有频繁的更新，更多更好的文章还请移步 CSDN。</p>
+<p><br></p>
+<hr>
 
     </article>
 </main>
@@ -428,7 +439,7 @@ height:50vh;
     
         
             
-                <a href="/assets/bilibili_QRcode.png" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+                <a href="https://space.bilibili.com/277470241" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
             
         
     
@@ -612,7 +623,23 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="./LateXCDN.js"></script>
+
+</body>
 </html>
 
 
