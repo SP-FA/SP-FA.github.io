@@ -23,7 +23,7 @@
     <meta name="description" content="数字 (Number) 数字的类型 整数 (int) python 自带高精，所以不需要注意范围问题。 12a &#x3D; 10print(type(a))  浮点数 (float) 注意浮点数的精度问题。  布尔型 (bool) 构造布尔型： 12345a &#x3D; Truea &#x3D; Falsea &#x3D; bool(0)a &#x3D; bool(&amp;#x27;&amp;#x27;)a &#x3D; bool([])  Remark: 变量只是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 学习 01：基本对象类型">
-<meta property="og:url" content="https://sp-fa.github.io/2021/04/09/Python-%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%B1%A1%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:url" content="https://sp-fa.github.io/2021/04/09/Python-%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E8%B1%A1%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数字 (Number) 数字的类型 整数 (int) python 自带高精，所以不需要注意范围问题。 12a &#x3D; 10print(type(a))  浮点数 (float) 注意浮点数的精度问题。  布尔型 (bool) 构造布尔型： 12345a &#x3D; Truea &#x3D; Falsea &#x3D; bool(0)a &#x3D; bool(&amp;#x27;&amp;#x27;)a &#x3D; bool([])  Remark: 变量只是">
 <meta property="og:locale" content="en_US">
@@ -767,7 +767,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span><a class="archive-post-title" href= "/2021/04/09/Python-%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%B1%A1%E7%B1%BB%E5%9E%8B/" >Python 学习 01：基本对象类型</a>
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href= "/2021/04/09/Python-%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E8%B1%A1%E7%B1%BB%E5%9E%8B/" >Python 学习 01：基本对象类型</a>
         </li>
     
     
@@ -873,7 +873,24 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</body>
 </html>
 
 
