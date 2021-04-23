@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://sp-fa.github.io/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:url" content="https://sp-fa.github.io/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -354,31 +354,34 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/04/09/Python-%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E8%B1%A1%E7%B1%BB%E5%9E%8B/" >
+        <a class="abstract-title" href = "/2021/04/23/Python-%E5%AD%A6%E4%B9%A0-05%EF%BC%9A%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" >
             
-                <span>Python 学习 01：基本对象类型</span>
+                <span>Python 学习 05：文件操作</span>
         </a>
         <div class="abstract-content">
-            数字 (Number)
-数字的类型
-整数 (int)
-python 自带高精，所以不需要注意范围问题。
-12a = 10print(type(a))
+            一、打开文件
+文件 (file) 也是一个对象，所有对文件的操作都是基于对这个对象的操作。
 
-浮点数 (float)
-注意浮点数的精度问题。
+打开文件：
+123f = open(r&#x27;文件路径&#x27;, &#x27;模式&#x27;)f.close()
+tips :
 
-布尔型 (bool)
-构造布尔型：
-12345a = Truea = Falsea = bool(0)a = bool(&#x27;&#x27;)a = bool([])
+建议使用原始字符串
 
-Remark:
-变...
+文件路径可以为绝对路径，也可以为相对路径
+
+‘模式’ 是指打开文件的方式，在后文会详细解释
+
+一定要在使用完后关闭文件
+
+
+
+使用 wit...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/09</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/23</span>
             </div>
             <!-- tags  -->
             
@@ -386,7 +389,7 @@ Remark:
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据类型">数据类型</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "文件操作">文件操作</a>
     
 </div>
             
