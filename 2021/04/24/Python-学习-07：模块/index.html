@@ -20,22 +20,22 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="类的构成类 一种复杂的数据类型，将不同类型的数据和与这些数据相关的操作封装在一起的集合体  123456class className:    attrs &#x3D; attrsValue    def __init__(self):        initStatements    def methodName(self):        methodStatements  实例 1a &#x3D; classN">
+    <meta name="description" content="一、模块 模块 (Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和 Python 语句。 模块让你能够有逻辑地组织你的 Python 代码段。 把相关的代码分配到一个模块里能让你的代码更好用，更易懂。 模块能定义函数，类和变量，模块里也能包含可执行的代码。  引入模块： 1import module_name 调用时使用 module_name.fun">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python 学习 04：类">
-<meta property="og:url" content="https://sp-fa.github.io/2021/04/15/Python-%E5%AD%A6%E4%B9%A0-04%EF%BC%9A%E7%B1%BB/index.html">
+<meta property="og:title" content="Python-学习-07：模块">
+<meta property="og:url" content="https://sp-fa.github.io/2021/04/24/Python-%E5%AD%A6%E4%B9%A0-07%EF%BC%9A%E6%A8%A1%E5%9D%97/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="类的构成类 一种复杂的数据类型，将不同类型的数据和与这些数据相关的操作封装在一起的集合体  123456class className:    attrs &#x3D; attrsValue    def __init__(self):        initStatements    def methodName(self):        methodStatements  实例 1a &#x3D; classN">
+<meta property="og:description" content="一、模块 模块 (Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和 Python 语句。 模块让你能够有逻辑地组织你的 Python 代码段。 把相关的代码分配到一个模块里能让你的代码更好用，更易懂。 模块能定义函数，类和变量，模块里也能包含可执行的代码。  引入模块： 1import module_name 调用时使用 module_name.fun">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-15T04:04:17.000Z">
-<meta property="article:modified_time" content="2021-04-24T11:59:47.820Z">
+<meta property="article:published_time" content="2021-04-24T11:38:51.000Z">
+<meta property="article:modified_time" content="2021-04-24T11:59:49.529Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>Python 学习 04：类 · 欢迎来到 SP-FA 的博客 ~</title>
+    <title>Python-学习-07：模块 · 欢迎来到 SP-FA 的博客 ~</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -230,7 +230,7 @@
                 <a href="/" >SP-FA 的博客</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Python 学习 04：类</a>
+                <a href="#" class="post-name">Python-学习-07：模块</a>
             </div>
     </div>
     
@@ -260,7 +260,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Python 学习 04：类
+            Python-学习-07：模块
             <!-- 404 -->
             
         </h1>
@@ -285,12 +285,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">812</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">687</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2021/04/15</span>
+                    <span class="post-intro-time">2021/04/24</span>
                     
                     <span class="shareWrapper">
                         <span class="iconfont-archer shareIcon">&#xe71d;</span>
@@ -409,108 +409,119 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="类的构成"><a href="#类的构成" class="headerlink" title="类的构成"></a>类的构成</h1><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><hr>
-<p>一种复杂的数据类型，将不同类型的数据和与这些数据相关的操作封装在一起的集合体</p>
+        <h1 id="一、模块"><a href="#一、模块" class="headerlink" title="一、模块"></a>一、模块</h1><hr>
+<p>模块 (Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和 Python 语句。</p>
+<p>模块让你能够有逻辑地组织你的 Python 代码段。</p>
+<p>把相关的代码分配到一个模块里能让你的代码更好用，更易懂。</p>
+<p>模块能定义函数，类和变量，模块里也能包含可执行的代码。</p>
 <p><br></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">className</span>:</span></span><br><span class="line">    attrs = attrsValue</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        initStatements</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">methodName</span>(<span class="params">self</span>):</span></span><br><span class="line">        methodStatements</span><br></pre></td></tr></table></figure>
+<p>引入模块：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module_name</span><br></pre></td></tr></table></figure>
+<p>调用时使用 <code>module_name.func()</code></p>
 <p><br></p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = className()</span><br></pre></td></tr></table></figure>
-<p>类的具体对象</p>
-<p>类实例化后，可以使用其属性和方法</p>
-<p><code>self</code>：本质上是类的一个实例，用于在类的内部传递参数导入的数据</p>
+<p>缩写模块名：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module_name <span class="keyword">as</span> abbr_name</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><hr>
-<p>类似于函数</p>
-<p>它们必须有一个额外的第一个参数名称 <code>self</code>，也可以用 <code>this</code></p>
+<p><code>from import</code> 语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module_name <span class="keyword">import</span> func</span><br></pre></td></tr></table></figure>
+<p>调用时直接使用函数或变量名。</p>
+<p><code>from module_name import *</code> : 导入所有模块。</p>
 <p><br></p>
-<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><hr>
-<p>对象都有这个方法，用于对类进行初始化，在实例化的时候会调用</p>
+<h1 id="二、标准库"><a href="#二、标准库" class="headerlink" title="二、标准库"></a>二、标准库</h1><hr>
+<h2 id="2-1-time-模块"><a href="#2-1-time-模块" class="headerlink" title="2.1 time 模块"></a>2.1 time 模块</h2><hr>
+<p><em>常用于记录程序运行的时间</em></p>
 <p><br></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">    initStatements</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><hr>
+<p>常用函数：</p>
 <ol>
-<li><p>数据属性：类中的变量</p>
+<li><p><code>time.time()</code> : Python time time() 返回当前时间的时间戳（1970 年后经过的浮点秒数）</p>
 </li>
-<li><p>函数属性：就是方法</p>
+<li><p><code>time.localtime()</code> : 返回一个元组，包括了不同的时间信息</p>
+</li>
+<li><p><code>time.ctime()</code> : 返回一个时间戳</p>
+</li>
+<li><p><code>time.sleep()</code> : 暂停，单位秒</p>
+</li>
+<li><p><code>gmtime(), strftime()</code> : 输入一个时间元组，进行格式化</p>
 </li>
 </ol>
 <p><br></p>
-<hr>
-<h3 id="类的私有属性"><a href="#类的私有属性" class="headerlink" title="类的私有属性"></a>类的私有属性</h3><p><br></p>
-<p>两个下划线开头，声明该属性为私有，不能通过类的外面调用。只能在类内部的方法中使用</p>
-<p>如果想在类的外部调用私有属性，需要定义接口函数</p>
+<h2 id="2-2-sys-模块"><a href="#2-2-sys-模块" class="headerlink" title="2.2 sys 模块"></a>2.2 sys 模块</h2><hr>
+<p><em>与 python 解释器关系密切</em></p>
 <p><br></p>
-<h3 id="类的私有方法"><a href="#类的私有方法" class="headerlink" title="类的私有方法"></a>类的私有方法</h3><hr>
-<p>方法名以两个下划线开头，声明该方法为私有方法，只能在类的内部调用 ，不能在类的外部调用</p>
-<p><br></p>
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_B</span>:</span></span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_A</span>(<span class="params">class_B</span>):</span></span><br><span class="line">    c = <span class="number">3</span></span><br><span class="line">    d = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">A = class_A()</span><br><span class="line"><span class="built_in">print</span>(A.a)</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<p>如果 <code>Class_A</code> 继承自 <code>Class_B</code>，称：</p>
-<ul>
-<li><p><code>Class_A</code> 是 <code>Class_B</code> 的子类， <code>Class_B</code> 是 <code>Class_A</code> 的父类（超类）</p>
+<p>常用函数：</p>
+<ol>
+<li><p><code>sys.path</code> : Python <code>import</code> 某个模 块时，首先会从 Python 的内置模块中查找是否含义该模块的定义若未查询到会从 <code>sys.path</code> 对应的模块路径查询是否含有对应模块的定义，如果搜索完成依然没有对应模块时则抛出 <code>import</code> 的异常。</p>
 </li>
-<li><p><code>Class_B</code> 称为基类，<code>Class_A</code> 称为派生类</p>
+<li><p><code>sys.path.append(r&quot;路径&quot;)</code> : 添加模块搜索路径</p>
+</li>
+<li><p><code>sys.stdout/stdin</code> : 定义标准输入输出，默认是显示器</p>
+</li>
+<li><p><code>sys.exit()</code> : 退出程序</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="2-3-os-模块"><a href="#2-3-os-模块" class="headerlink" title="2.3 os 模块"></a>2.3 os 模块</h2><hr>
+<p>常用函数：</p>
+<ol>
+<li><p><code>os.rename(original_name, rename_name)</code> : 重命名文件</p>
+</li>
+<li><p><code>os.remove(file)</code> : 删除文件</p>
+</li>
+<li><p><code>os.listdir()</code> : 显示目录中的文件</p>
+</li>
+<li><p><code>os.getcwd()</code> : 当前工作目录</p>
+</li>
+<li><p><code>os.chdir(directory)</code> : 改变当前工作目录</p>
+</li>
+<li><p><code>os.makedirs(directory)</code> : 创建目录</p>
+</li>
+<li><p><code>os.removedirs(directory)</code> : 删除目录</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="2-4-random-模块"><a href="#2-4-random-模块" class="headerlink" title="2.4 random 模块"></a>2.4 random 模块</h2><hr>
+<p>常用函数：</p>
+<ol>
+<li><p><code>random.randint(a, b)</code> : 生成 <code>a</code> 到 <code>b</code>之间的一个整数随机数</p>
+</li>
+<li><p><code>random.random()</code> : 生成一个 0 到 1 的随机浮点数</p>
+</li>
+<li><p><code>random.uniform(a, b)</code> : 生成一个 <code>a</code>到 <code>b</code> 内的随机浮点数</p>
+</li>
+<li><p><code>random.choice()</code> : 从序列中随机选取一个元素</p>
+</li>
+<li><p><code>random.randrange(a, b, step)</code> : 生成从 <code>a</code> 到 <code>b</code> 间隔为 <code>step</code> 的随机整数</p>
+</li>
+</ol>
+<p><br></p>
+<h1 id="三、自定义模块"><a href="#三、自定义模块" class="headerlink" title="三、自定义模块"></a>三、自定义模块</h1><hr>
+<p>引入自定义库的方法：</p>
+<ul>
+<li><p>将 <code>main</code> 执行文件和模块放在同一个目录</p>
+</li>
+<li><p>使用 <code>sys.path.append(module_dir)</code> 来添加路径</p>
+</li>
+<li><p>引入模块</p>
 </li>
 </ul>
 <p><br></p>
-<p>继承的作用：</p>
+<p>按目录来组织模块的方法，称为包 (Package)</p>
 <ul>
-<li><p>实现代码的重用</p>
+<li><p>一个包里包含多个模块</p>
 </li>
-<li><p>实现属性和方法的继承</p>
+<li><p>需要有 <code>__init__.py</code> 文件，可为空</p>
+</li>
+<li><p>一个库 (Library) 里包含很多包</p>
 </li>
 </ul>
 <p><br></p>
-<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><hr>
+<h1 id="四、安装第三方库"><a href="#四、安装第三方库" class="headerlink" title="四、安装第三方库"></a>四、安装第三方库</h1><hr>
 <ol>
-<li><p>子类拥有了父类的全部方法和属性</p>
+<li><p>使用 Anaconda</p>
 </li>
-<li><p>如果子类有和父类同样的方法和属性，子类的方法和属性会覆盖父类的方法和属性，这叫<strong>重写 (override)</strong></p>
+<li><p>在控制台输入：<code>pip install library_name</code></p>
 </li>
-<li><p>子类可以继承系统已有的类</p>
-</li>
-</ol>
-<p><br></p>
-<p><strong>重度的继承并不是好事</strong></p>
-<p>重写显示了 OOP 的特性之一，<strong>多态 (Polymorphism)</strong>：相同的信息给予不同的对象会引发不同的动作</p>
-<p><code>super(class, object).method()</code>：用于调用父类的一个方法</p>
-<p><br></p>
-<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><hr>
-<p>抽象类是一个特殊的类，它的特殊之处在于只能被继承，不能被实例化。</p>
-<p><br></p>
-<p><strong>由于 Python 没有抽象类、接口的概念，所以要引入 abc 库</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABC, abstractmethod</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<p>要在 Python 类中使用抽象方法，首先要继承 <code>abc.ABC</code>，然后给实例方法加上装饰器 <code>@abstractmethod</code>，这样该类不能被直接实例化，要想使用该类，应继承该类并实现所有的抽象方法</p>
-<p><br></p>
-<h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><hr>
-<p><strong>多重继承是一把双刃剑</strong></p>
-<p><br></p>
-<p>继承顺序：</p>
-<ol>
-<li><p>默认调用的是在括号中排前的父类的方法</p>
-</li>
-<li><p>广度优先</p>
-</li>
-</ol>
-<p><br></p>
-<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><hr>
-<p>封装（encapsulation）是对对象（object）的一种抽象，即隐藏类或者模块的某些部分，只提供接口（interface）给外部使用，封装和类的私有化息息相关</p>
-<p><br></p>
-<h1 id="成功的面向对象语言的五个基本特性"><a href="#成功的面向对象语言的五个基本特性" class="headerlink" title="成功的面向对象语言的五个基本特性"></a>成功的面向对象语言的五个基本特性</h1><hr>
-<ol>
-<li><p>万物皆为对象</p>
-</li>
-<li><p>程序是对象的集合，他们通过发送消息来告知彼此所要做的</p>
-</li>
-<li><p>.每个对象都有自己的由其他对象所构成的存储</p>
-</li>
-<li><p>每个对象都拥有其类型</p>
-</li>
-<li><p>某一特定类型的所有对象可以接受同样的消息（多态）</p>
+<li><p>去<a target="_blank" rel="noopener" href="https://pypi.org/">官网</a>下载文件包并解压，控制台进入当前文件夹，运行 <code>python setup.py install</code></p>
 </li>
 </ol>
 
@@ -521,17 +532,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/04/23/Python-%E5%AD%A6%E4%B9%A0-05%EF%BC%9A%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" title= "Python 学习 05：文件操作">
-                    <div class="nextTitle">Python 学习 05：文件操作</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2021/04/14/Python-%E5%AD%A6%E4%B9%A0-03%EF%BC%9A%E5%87%BD%E6%95%B0/" title= "Python 学习 03：函数">
-                    <div class="prevTitle">Python 学习 03：函数</div>
+                <a href= "/2021/04/24/Python-%E5%AD%A6%E4%B9%A0-06%EF%BC%9A%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" title= "Python 学习 06：异常处理">
+                    <div class="prevTitle">Python 学习 06：异常处理</div>
                 </a>
             
         </li>
@@ -662,7 +668,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text">类的构成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.2.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.1.</span> <span class="toc-text">构造方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="toc-number">1.4.1.</span> <span class="toc-text">类的私有属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.2.</span> <span class="toc-text">类的私有方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-number">2.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">2.1.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">抽象类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF"><span class="toc-number">2.3.</span> <span class="toc-text">多重继承</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BA%94%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text">成功的面向对象语言的五个基本特性</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">一、模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">二、标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-time-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 time 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-sys-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 sys 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-os-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 os 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-random-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 random 模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">三、自定义模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">四、安装第三方库</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
