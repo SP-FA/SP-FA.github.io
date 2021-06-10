@@ -20,15 +20,15 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="主要思想： 设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y_i$ 为标签 在线性可分的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得： \mathrm{sign}(\vec w\cdot\vec x+b)&#x3D;\begin{cases}1&amp;\ge0\\-1&amp;">
+    <meta name="description" content="主要思想： 设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y$ 为标签 在线性可分的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得： \mathrm{sign}(\vec w\cdot\vec x+b)&#x3D;\begin{cases}1&amp;\ge0\\-1&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习 01：感知机">
 <meta property="og:url" content="https://sp-fa.github.io/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="主要思想： 设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y_i$ 为标签 在线性可分的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得： \mathrm{sign}(\vec w\cdot\vec x+b)&#x3D;\begin{cases}1&amp;\ge0\\-1&amp;">
+<meta property="og:description" content="主要思想： 设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y$ 为标签 在线性可分的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得： \mathrm{sign}(\vec w\cdot\vec x+b)&#x3D;\begin{cases}1&amp;\ge0\\-1&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-10T07:21:05.000Z">
-<meta property="article:modified_time" content="2021-06-10T14:53:47.128Z">
+<meta property="article:modified_time" content="2021-06-10T16:18:03.199Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -413,23 +413,22 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h1 id="主要思想："><a href="#主要思想：" class="headerlink" title="主要思想："></a>主要思想：</h1><hr>
-<p>设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y_i$ 为标签</p>
+<p>设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y$ 为标签</p>
 <p>在<strong>线性可分</strong>的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得：</p>
 <script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)=\begin{cases}1&\ge0\\-1&<0\end{cases}</script><p>也就是：</p>
-<script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)y_i\ge0</script><p>其中 $\vec w\cdot\vec x$ 是向量点乘，也就是 $\sum\vec w_i\vec x_i$</p>
-<p><br></p>
+<script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)y\ge0</script><p><br></p>
 <h1 id="误分类点："><a href="#误分类点：" class="headerlink" title="误分类点："></a>误分类点：</h1><hr>
 <p>根据上文，很容易知道对于一个特征向量 $\vec x$ 如果误分类了，则会有：</p>
-<script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)y_i<0</script><p>借此可以很方便的找出误分类点。</p>
+<script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)y<0</script><p>借此可以很方便的找出误分类点。</p>
 <p><br></p>
 <h1 id="损失函数："><a href="#损失函数：" class="headerlink" title="损失函数："></a>损失函数：</h1><hr>
 <p>把误分类点到线性函数的距离作为误差，组成损失函数：</p>
-<script type="math/tex; mode=display">lossFunc=-\frac{(\vec w\cdot\vec x+b)y_i}{\parallel w\parallel_2}</script><p><br></p>
+<script type="math/tex; mode=display">lossFunc=-\frac{(\vec w\cdot\vec x+b)y}{\parallel w\parallel_2}</script><p><br></p>
 <h1 id="更新权重项与偏置项："><a href="#更新权重项与偏置项：" class="headerlink" title="更新权重项与偏置项："></a>更新权重项与偏置项：</h1><hr>
 <p>采用梯度下降的方法进行更新。设 $L(\vec w,b) = lossFunc$ 我们要使 $L(\vec w,b)$ 的值尽量小，则可以求其梯度的负数 $-\nabla L$ 即为该函数下降最快的方向，但是注意，<strong>通过这个方法可能无法到达全局最优点，可能会到达局部最优点或鞍点</strong>。不过这无所谓，对于感知机来说这就足够了。</p>
-<script type="math/tex; mode=display">\begin{aligned}-\nabla L&=<\vec xy_i,y_i>\\\vec w&=\vec w+\alpha\vec xy_i\\b&=b+\alpha y_i\end{aligned}</script><p>其中 $\alpha$ 是学习率，要注意 $\vec xy_i$ 是一个向量。</p>
+<script type="math/tex; mode=display">\begin{aligned}-\nabla L&=<\vec xy,y>\\\vec w&=\vec w+\alpha\vec xy\\b&=b+\alpha y\end{aligned}</script><p>其中 $\alpha$ 是学习率，要注意 $\vec xy$ 是一个向量。</p>
 <p>模板：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">X_train = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line">Y_train = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">perceptron</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, X, Y, Alpha = <span class="number">0.01</span></span>):</span> <span class="comment"># X, Y can be list or numpy.ndarray</span></span><br><span class="line">        self.alpha = Alpha</span><br><span class="line">        self.X_trn = np.array(X)</span><br><span class="line">        self.Y_trn = np.array(Y)</span><br><span class="line">        self.B = np.random.uniform(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        self.W = np.random.uniform(-<span class="number">1</span>, <span class="number">1</span>, <span class="built_in">len</span>(X[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">self, i</span>):</span></span><br><span class="line">        Sum = np.dot(self.W, self.X_trn[i]) + self.B</span><br><span class="line">        <span class="keyword">if</span> (Sum * self.Y_trn[i] &gt;= <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Loss_func</span>(<span class="params">self, i</span>):</span></span><br><span class="line">        self.W += self.alpha * self.X_trn[i] * self.Y_trn[i]</span><br><span class="line">        self.B += self.alpha * self.Y_trn[i]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span>(<span class="params">self</span>):</span></span><br><span class="line">        Error = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">while</span> (Error):</span><br><span class="line">            Error = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(self.X_trn)):</span><br><span class="line">                <span class="keyword">if</span> (self.check(i) == <span class="literal">False</span>):</span><br><span class="line">                    self.Loss_func(i)</span><br><span class="line">                    Error = <span class="literal">True</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;W: &quot;</span>, self.W, <span class="string">&quot;\tB: &quot;</span>, self.B)</span><br><span class="line"></span><br><span class="line">per = perceptron(X_train, Y_train, <span class="number">0.01</span>)</span><br><span class="line">per.train()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">X_train = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line">Y_train = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">perceptron</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, X, Y, Alpha = <span class="number">0.01</span></span>):</span> <span class="comment"># X, Y can be list or numpy.ndarray</span></span><br><span class="line">        self.alpha = Alpha</span><br><span class="line">        self.X_trn = np.array(X)</span><br><span class="line">        self.Y_trn = np.array(Y)</span><br><span class="line">        self.B = np.random.rand()</span><br><span class="line">        self.W = np.random.rand(<span class="built_in">len</span>(X[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">self, i</span>):</span></span><br><span class="line">        Sum = np.dot(self.W, self.X_trn[i]) + self.B</span><br><span class="line">        <span class="keyword">if</span> (Sum * self.Y_trn[i] &gt;= <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Loss_func</span>(<span class="params">self, i</span>):</span></span><br><span class="line">        self.W += self.alpha * self.X_trn[i] * self.Y_trn[i]</span><br><span class="line">        self.B += self.alpha * self.Y_trn[i]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span>(<span class="params">self</span>):</span></span><br><span class="line">        Error = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">while</span> (Error):</span><br><span class="line">            Error = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(self.X_trn)):</span><br><span class="line">                <span class="keyword">if</span> (self.check(i) == <span class="literal">False</span>):</span><br><span class="line">                    self.Loss_func(i)</span><br><span class="line">                    Error = <span class="literal">True</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;W: &quot;</span>, self.W, <span class="string">&quot;\tB: &quot;</span>, self.B)</span><br><span class="line"></span><br><span class="line">per = perceptron(X_train, Y_train, <span class="number">0.01</span>)</span><br><span class="line">per.train()</span><br></pre></td></tr></table></figure>
 <p>以及调库实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Perceptron</span><br><span class="line"></span><br><span class="line">My_Data = datasets.load_iris()</span><br><span class="line">clf = Perceptron()</span><br><span class="line">x = My_Data[<span class="string">&#x27;data&#x27;</span>]</span><br><span class="line">y = My_Data[<span class="string">&#x27;target&#x27;</span>]</span><br><span class="line">train_x, test_x, train_y, test_y = train_test_split(x, y, test_size = <span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">clf.fit(train_x, train_y)</span><br><span class="line">clf.predict(test_x)</span><br><span class="line"><span class="built_in">print</span>(clf.score(test_x, test_y))</span><br></pre></td></tr></table></figure>
     </article>
@@ -438,6 +437,11 @@ height:50vh;
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F/" title= "机器学习 02：感知机的对偶形式">
+                    <div class="nextTitle">机器学习 02：感知机的对偶形式</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -694,9 +698,22 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 10
+        Total : 11
         </div>
         <!-- search  -->
         
@@ -713,6 +730,11 @@ top:50vh;
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F/" >机器学习 02：感知机的对偶形式</a>
+        </li>
     
     
         <li class="archive-post-item">
