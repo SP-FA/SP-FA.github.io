@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://sp-fa.github.io/archives/2021/06/index.html">
+<meta property="og:url" content="https://sp-fa.github.io/tags/python/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -354,21 +354,31 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/06/11/Python-Package-Numpy-%E7%BB%83%E4%B9%A0%E9%A2%98/" >
+        <a class="abstract-title" href = "/2021/04/09/Python-%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E8%B1%A1%E7%B1%BB%E5%9E%8B/" >
             
-                <span>Python Package：NumPy 练习题</span>
+                <span>Python 学习 01：基本对象类型</span>
         </a>
         <div class="abstract-content">
-            Import the numpy package under the name np (★☆☆)(hint: import … as …)
-1import numpy as np
-Print the numpy version (★☆☆)(hint: np.__version__)
-1np.__version__
-Create a vector of zeros of size 10 (★☆...
+            数字 (Number)
+数字的类型
+整数 (int)
+python 自带高精，所以不需要注意范围问题。
+12a = 10print(type(a))
+
+浮点数 (float)
+注意浮点数的精度问题。
+
+布尔型 (bool)
+构造布尔型：
+12345a = Truea = Falsea = bool(0)a = bool(&#x27;&#x27;)a = bool([])
+
+Remark:
+变...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/06/11</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/09</span>
             </div>
             <!-- tags  -->
             
@@ -376,75 +386,7 @@ Create a vector of zeros of size 10 (★☆...
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "numpy">numpy</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F/" >
-            
-                <span>机器学习 02：感知机的对偶形式</span>
-        </a>
-        <div class="abstract-content">
-            误分类点：
-设一个点 $\vec x$ 被误分类了 $n$ 次，则由于 $\nabla L=&lt;\vec xy,y&gt;$，更新了 $n$ 次后的 $\vec w$ 为：
-\begin{aligned}\vec w&=\alpha n\vec xy\end{aligned}对所有的点来说：
-\begin{aligned}\vec w&=\sum\alpha n_i\vec x_iy_i...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/06/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "机器学习">机器学习</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA/" >
-            
-                <span>机器学习 01：感知机</span>
-        </a>
-        <div class="abstract-content">
-            主要思想：
-设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y$ 为标签
-在线性可分的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得：
-\mathrm{sign}(\vec w\cdot\vec x+b)=\begin{cases}1&\ge0\\-1&
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/06/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "机器学习">机器学习</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据类型">数据类型</a>
     
 </div>
             
@@ -452,6 +394,10 @@ Create a vector of zeros of size 10 (★☆...
     </article>
     
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/tags/python/">&lt; PREV</a><a class="page-number" href="/tags/python/">1</a><span class="page-number current">2</span>
+    </nav>
     
 </main>
             <!-- profile -->

@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="John Doe">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="John Doe">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="Import the numpy package under the name np (★☆☆)(hint: import … as …) 1import numpy as np Print the numpy version (★☆☆)(hint: np.__version__) 1np.__version__ Create a vector of zeros of size 10 (★☆☆)(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Package：NumPy 练习题">
+<meta property="og:url" content="https://sp-fa.github.io/2021/06/11/Python-Package-Numpy-%E7%BB%83%E4%B9%A0%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Import the numpy package under the name np (★☆☆)(hint: import … as …) 1import numpy as np Print the numpy version (★☆☆)(hint: np.__version__) 1np.__version__ Create a vector of zeros of size 10 (★☆☆)(">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-11T09:31:48.000Z">
+<meta property="article:modified_time" content="2021-06-11T11:15:49.871Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="numpy">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    
+    <title>Python Package：NumPy 练习题 · 欢迎来到 SP-FA 的博客 ~</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/avatar/Tianyi.png" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >SP-FA 的博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Python Package：NumPy 练习题</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>SP-FA 的博客</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/Numpy.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Python Package：NumPy 练习题
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "numpy">numpy</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">2k</span>Reading time: <span class="post-count reading-time">12 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/06/11</span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="Import-the-numpy-package-under-the-name-np-★☆☆"><a href="#Import-the-numpy-package-under-the-name-np-★☆☆" class="headerlink" title="Import the numpy package under the name np (★☆☆)"></a>Import the numpy package under the name <code>np</code> (★☆☆)</h4><p>(<strong>hint</strong>: import … as …)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h4 id="Print-the-numpy-version-★☆☆"><a href="#Print-the-numpy-version-★☆☆" class="headerlink" title="Print the numpy version (★☆☆)"></a>Print the numpy version (★☆☆)</h4><p>(<strong>hint</strong>: np.__version__)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.__version__</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-vector-of-zeros-of-size-10-★☆☆"><a href="#Create-a-vector-of-zeros-of-size-10-★☆☆" class="headerlink" title="Create a vector of zeros of size 10 (★☆☆)"></a>Create a vector of zeros of size 10 (★☆☆)</h4><p>(<strong>hint</strong>: np.zeros)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vec = np.zeros(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-find-the-memory-size-of-any-array-★☆☆"><a href="#How-to-find-the-memory-size-of-any-array-★☆☆" class="headerlink" title="How to find the memory size of any array (★☆☆)"></a>How to find the memory size of any array (★☆☆)</h4><p>(<strong>hint</strong>: size, itemsize)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(vec.size, vec.itemsize)</span><br><span class="line"><span class="built_in">print</span>(vec.size * vec.itemsize)</span><br></pre></td></tr></table></figure>
+<h4 id="Create-am-zero-vector-of-size-10-but-the-fifth-value-which-is-1-★☆☆"><a href="#Create-am-zero-vector-of-size-10-but-the-fifth-value-which-is-1-★☆☆" class="headerlink" title="Create am zero vector of size 10 but the fifth value which is 1 (★☆☆)"></a>Create am zero vector of size 10 but the fifth value which is 1 (★☆☆)</h4><p>(<strong>hint</strong>: array[4])</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vec[<span class="number">4</span>] = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-vector-with-values-ranging-from-10-to-49-★☆☆"><a href="#Create-a-vector-with-values-ranging-from-10-to-49-★☆☆" class="headerlink" title="Create a vector with values ranging from 10 to 49 (★☆☆)"></a>Create a vector with values ranging from 10 to 49 (★☆☆)</h4><p>(<strong>hint</strong>: np.arange)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vec_range = np.arange(<span class="number">10</span>, <span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Reverse-a-vector-first-element-becomes-last-★☆☆"><a href="#Reverse-a-vector-first-element-becomes-last-★☆☆" class="headerlink" title="Reverse a vector (first element becomes last) (★☆☆)"></a>Reverse a vector (first element becomes last) (★☆☆)</h4><p>(<strong>hint</strong>: array[::-1])</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vec_range = vec_range[::-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-3x3-matrix-with-values-ranging-from-0-to-8-★☆☆"><a href="#Create-a-3x3-matrix-with-values-ranging-from-0-to-8-★☆☆" class="headerlink" title="Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆)"></a>Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆)</h4><p>(<strong>hint</strong>: reshape)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat = np.arange(<span class="number">0</span>, <span class="number">9</span>)</span><br><span class="line">mat = mat.reshape(<span class="number">3</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Find-indices-of-non-zero-elements-from-1-2-0-0-4-0-★☆☆"><a href="#Find-indices-of-non-zero-elements-from-1-2-0-0-4-0-★☆☆" class="headerlink" title="Find indices of non-zero elements from [1,2,0,0,4,0] (★☆☆)"></a>Find indices of non-zero elements from [1,2,0,0,4,0] (★☆☆)</h4><p>(<strong>hint</strong>: np.nonzero)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.nonzero([<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-3x3-identity-matrix-★☆☆"><a href="#Create-a-3x3-identity-matrix-★☆☆" class="headerlink" title="Create a 3x3 identity matrix (★☆☆)"></a>Create a 3x3 identity matrix (★☆☆)</h4><p>(<strong>hint</strong>: np.eye)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identity_mat = np.eye(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-3x3x3-array-with-random-values-★☆☆"><a href="#Create-a-3x3x3-array-with-random-values-★☆☆" class="headerlink" title="Create a 3x3x3 array with random values (★☆☆)"></a>Create a 3x3x3 array with random values (★☆☆)</h4><p>(<strong>hint</strong>: np.random.random)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor = np.random.random(<span class="number">27</span>)</span><br><span class="line">tensor = tensor.reshape(<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-10x10-array-with-random-values-and-find-the-minimum-and-maximum-values-★☆☆"><a href="#Create-a-10x10-array-with-random-values-and-find-the-minimum-and-maximum-values-★☆☆" class="headerlink" title="Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)"></a>Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)</h4><p>(<strong>hint</strong>: min, max)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.random(<span class="number">100</span>).reshape(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="built_in">print</span>(np.<span class="built_in">max</span>(arr), np.<span class="built_in">min</span>(arr))</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-random-vector-of-size-30-and-find-the-mean-value-★☆☆"><a href="#Create-a-random-vector-of-size-30-and-find-the-mean-value-★☆☆" class="headerlink" title="Create a random vector of size 30 and find the mean value (★☆☆)"></a>Create a random vector of size 30 and find the mean value (★☆☆)</h4><p>(<strong>hint</strong>: mean)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mean_vec = np.random.random(<span class="number">30</span>)</span><br><span class="line"><span class="built_in">print</span>(mean_vec)</span><br><span class="line"><span class="built_in">print</span>(np.mean(mean_vec))</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-2d-array-with-1-on-the-border-and-0-inside-★☆☆"><a href="#Create-a-2d-array-with-1-on-the-border-and-0-inside-★☆☆" class="headerlink" title="Create a 2d array with 1 on the border and 0 inside (★☆☆)"></a>Create a 2d array with 1 on the border and 0 inside (★☆☆)</h4><p>(<strong>hint</strong>: array[1:-1, 1:-1])</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr_2D = np.ones(<span class="number">100</span>).reshape(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">arr_2D[<span class="number">1</span>:-<span class="number">1</span>, <span class="number">1</span>:-<span class="number">1</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="How-to-add-a-border-filled-with-0’s-around-an-existing-array-★☆☆"><a href="#How-to-add-a-border-filled-with-0’s-around-an-existing-array-★☆☆" class="headerlink" title="How to add a border (filled with 0’s) around an existing array? (★☆☆)"></a>How to add a border (filled with 0’s) around an existing array? (★☆☆)</h4><p>(<strong>hint</strong>: np.pad)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr_2D = np.pad(arr_2D, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="What-is-the-result-of-the-following-expression-★☆☆"><a href="#What-is-the-result-of-the-following-expression-★☆☆" class="headerlink" title="What is the result of the following expression? (★☆☆)"></a>What is the result of the following expression? (★☆☆)</h4><p>(<strong>hint</strong>: NaN = not a number, inf = infinity)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> * np.nan</span><br><span class="line">np.nan == np.nan</span><br><span class="line">np.inf &gt; np.nan</span><br><span class="line">np.nan - np.nan</span><br><span class="line"><span class="number">0.3</span> == <span class="number">3</span> * <span class="number">0.1</span></span><br></pre></td></tr></table></figure></p>
+<p>note: <code>np.isclose</code> is useful when rounding error occurs</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">0</span> * np.nan)</span><br><span class="line"><span class="built_in">print</span>(np.nan == np.nan)</span><br><span class="line"><span class="built_in">print</span>(np.inf &gt; np.nan)</span><br><span class="line"><span class="built_in">print</span>(np.nan - np.nan)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">0.3</span> == <span class="number">3</span> * <span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-5x5-matrix-with-values-1-2-3-4-just-below-the-diagonal-★☆☆"><a href="#Create-a-5x5-matrix-with-values-1-2-3-4-just-below-the-diagonal-★☆☆" class="headerlink" title="Create a 5x5 matrix with values 1,2,3,4 just below the diagonal (★☆☆)"></a>Create a 5x5 matrix with values 1,2,3,4 just below the diagonal (★☆☆)</h4><p>(<strong>hint</strong>: np.diag)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mat2 = np.zeros(<span class="number">25</span>).reshape(<span class="number">5</span>, <span class="number">5</span>)</span><br><span class="line">mat2[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">mat2[<span class="number">0</span>][<span class="number">4</span>] = <span class="number">2</span></span><br><span class="line">mat2[<span class="number">4</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">mat2[<span class="number">4</span>][<span class="number">4</span>] = <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-8x8-matrix-and-fill-it-with-a-checkerboard-pattern-★☆☆"><a href="#Create-a-8x8-matrix-and-fill-it-with-a-checkerboard-pattern-★☆☆" class="headerlink" title="Create a 8x8 matrix and fill it with a checkerboard pattern (★☆☆)"></a>Create a 8x8 matrix and fill it with a checkerboard pattern (★☆☆)</h4><p>(<strong>hint</strong>: array[::2])</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">checkerboard = np.zeros(<span class="number">81</span>)</span><br><span class="line">checkerboard[::<span class="number">2</span>] = <span class="number">1</span></span><br><span class="line">checkerboard = checkerboard.reshape(<span class="number">9</span>, <span class="number">9</span>)</span><br><span class="line">checkerboard = np.delete(checkerboard, <span class="number">8</span>, axis = <span class="number">1</span>)</span><br><span class="line">checkerboard = np.delete(checkerboard, <span class="number">8</span>, axis = <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Consider-a-6-7-8-shape-array-what-is-the-index-x-y-z-of-the-100th-element"><a href="#Consider-a-6-7-8-shape-array-what-is-the-index-x-y-z-of-the-100th-element" class="headerlink" title="Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element?"></a>Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element?</h4><p>(<strong>hint</strong>: np.unravel_index)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rk100 = np.unravel_index(<span class="number">100</span>, (<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-checkerboard-8x8-matrix-using-the-tile-function-★☆☆"><a href="#Create-a-checkerboard-8x8-matrix-using-the-tile-function-★☆☆" class="headerlink" title="Create a checkerboard 8x8 matrix using the tile function (★☆☆)"></a>Create a checkerboard 8x8 matrix using the tile function (★☆☆)</h4><p>(<strong>hint</strong>: np.tile)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">checkerboard2 = np.eye(<span class="number">2</span>)</span><br><span class="line">checkerboard2 = np.tile(checkerboard2, (<span class="number">4</span>, <span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="Normalize-a-5x5-random-matrix-★☆☆"><a href="#Normalize-a-5x5-random-matrix-★☆☆" class="headerlink" title="Normalize a 5x5 random matrix (★☆☆)"></a>Normalize a 5x5 random matrix (★☆☆)</h4><p>(<strong>hint</strong>: (x - min) / (max - min))</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Nmat = np.random.random(<span class="number">25</span>)</span><br><span class="line">maxn = np.<span class="built_in">max</span>(Nmat)</span><br><span class="line">minn = np.<span class="built_in">min</span>(Nmat)</span><br><span class="line">Nmat = (Nmat-minn)/(maxn-minn)</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-custom-dtype-that-describes-a-color-as-four-unsigned-bytes-RGBA-★☆☆"><a href="#Create-a-custom-dtype-that-describes-a-color-as-four-unsigned-bytes-RGBA-★☆☆" class="headerlink" title="Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆)"></a>Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆)</h4><p>(<strong>hint</strong>: np.dtype)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RGBA = np.dtype([(<span class="string">&#x27;R&#x27;</span>, np.ubyte), (<span class="string">&#x27;G&#x27;</span>, np.ubyte), (<span class="string">&#x27;B&#x27;</span>, np.ubyte), (<span class="string">&#x27;A&#x27;</span>, np.ubyte)])</span><br></pre></td></tr></table></figure>
+<h4 id="Multiply-a-5x3-matrix-by-a-3x2-matrix-real-matrix-product-★☆☆"><a href="#Multiply-a-5x3-matrix-by-a-3x2-matrix-real-matrix-product-★☆☆" class="headerlink" title="Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆)"></a>Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆)</h4><p>(<strong>hint</strong>: np.dot | @)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mat1 = np.random.random(<span class="number">15</span>).reshape(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line">mat2 = np.random.random(<span class="number">6</span>).reshape(<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">mat3 = mat1 @ mat2</span><br></pre></td></tr></table></figure>
+<h4 id="Given-a-1D-array-negate-all-elements-which-are-between-3-and-8-in-place-★☆☆"><a href="#Given-a-1D-array-negate-all-elements-which-are-between-3-and-8-in-place-★☆☆" class="headerlink" title="Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)"></a>Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)</h4><p>(<strong>hint</strong>: &gt;, &lt;=)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr38 = np.random.randint(<span class="number">1</span>, high = <span class="number">10</span>, size = <span class="number">10</span>)</span><br><span class="line">arr38[((arr38&lt;<span class="number">8</span>) &amp; (arr38&gt;<span class="number">3</span>))] *= -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="What-is-the-output-of-the-following-script-Why-★☆☆"><a href="#What-is-the-output-of-the-following-script-Why-★☆☆" class="headerlink" title="What is the output of the following script? Why? (★☆☆)"></a>What is the output of the following script? Why? (★☆☆)</h4><p>(<strong>hint</strong>: np.sum)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Author: Jake VanderPlas</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>(<span class="built_in">range</span>(<span class="number">5</span>),-<span class="number">1</span>))</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(np.<span class="built_in">sum</span>(<span class="built_in">range</span>(<span class="number">5</span>),-<span class="number">1</span>))</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">sum</span>(<span class="built_in">range</span>(<span class="number">5</span>), -<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(np.<span class="built_in">sum</span>(<span class="built_in">range</span>(<span class="number">5</span>), -<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="Consider-an-integer-vector-Z-which-of-these-expressions-are-legal-★☆☆"><a href="#Consider-an-integer-vector-Z-which-of-these-expressions-are-legal-★☆☆" class="headerlink" title="Consider an integer vector Z, which of these expressions are legal? (★☆☆)"></a>Consider an integer vector Z, which of these expressions are legal? (★☆☆)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Z**Z</span><br><span class="line"><span class="number">2</span> &lt;&lt; Z &gt;&gt; <span class="number">2</span></span><br><span class="line">Z &lt;- Z</span><br><span class="line"><span class="number">1j</span>*Z</span><br><span class="line">Z/<span class="number">1</span>/<span class="number">1</span></span><br><span class="line">Z&lt;Z&gt;Z</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Z = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(Z**Z)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">2</span> &lt;&lt; Z &gt;&gt; <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(Z &lt; -Z)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">1j</span>*Z)</span><br><span class="line"><span class="built_in">print</span>(Z/<span class="number">1</span>/<span class="number">1</span>)\</span><br></pre></td></tr></table></figure>
+<h4 id="What-are-the-result-of-the-following-expressions"><a href="#What-are-the-result-of-the-following-expressions" class="headerlink" title="What are the result of the following expressions?"></a>What are the result of the following expressions?</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.array(<span class="number">0</span>) / np.array(<span class="number">0</span>)</span><br><span class="line">np.array(<span class="number">0</span>) // np.array(<span class="number">0</span>)</span><br><span class="line">np.array([np.nan]).astype(<span class="built_in">int</span>).astype(<span class="built_in">float</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.array(<span class="number">0</span>) / np.array(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(np.array(<span class="number">0</span>) // np.array(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(np.array([np.nan]).astype(<span class="built_in">int</span>).astype(<span class="built_in">float</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-round-away-from-zero-a-float-array-★☆☆"><a href="#How-to-round-away-from-zero-a-float-array-★☆☆" class="headerlink" title="How to round away from zero a float array ? (★☆☆)"></a>How to round away from zero a float array ? (★☆☆)</h4><p>(<strong>hint</strong>: np.uniform, np.copysign, np.ceil, np.abs)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">roundarr = np.random.uniform(-<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(roundarr)</span><br><span class="line">roundarr = np.copysign(np.ceil(np.<span class="built_in">abs</span>(roundarr)), roundarr)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-find-common-values-between-two-arrays-★☆☆"><a href="#How-to-find-common-values-between-two-arrays-★☆☆" class="headerlink" title="How to find common values between two arrays? (★☆☆)"></a>How to find common values between two arrays? (★☆☆)</h4><p>(<strong>hint</strong>: np.intersect1d)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, <span class="number">8</span>)</span><br><span class="line">arr2 = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, <span class="number">8</span>)</span><br><span class="line">arr3 = np.intersect1d(arr1, arr2)</span><br><span class="line"><span class="built_in">print</span>(arr1, arr2, arr3)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-ignore-all-numpy-warnings-not-recommended-★☆☆"><a href="#How-to-ignore-all-numpy-warnings-not-recommended-★☆☆" class="headerlink" title="How to ignore all numpy warnings (not recommended)? (★☆☆)"></a>How to ignore all numpy warnings (not recommended)? (★☆☆)</h4><p>(<strong>hint</strong>: np.seterr, np.errstate)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">settings = np.seterr(<span class="built_in">all</span> = <span class="string">&#x27;ignore&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Is-the-following-expressions-true-★☆☆"><a href="#Is-the-following-expressions-true-★☆☆" class="headerlink" title="Is the following expressions true? (★☆☆)"></a>Is the following expressions true? (★☆☆)</h4><p>(<strong>hint</strong>: imaginary number)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.sqrt(-<span class="number">1</span>) == np.emath.sqrt(-<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.sqrt(-<span class="number">1</span>) == np.emath.sqrt(-<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-get-the-dates-of-yesterday-today-and-tomorrow-★☆☆"><a href="#How-to-get-the-dates-of-yesterday-today-and-tomorrow-★☆☆" class="headerlink" title="How to get the dates of yesterday, today and tomorrow? (★☆☆)"></a>How to get the dates of yesterday, today and tomorrow? (★☆☆)</h4><p>(<strong>hint</strong>: np.datetime64, np.timedelta64)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yesterday = np.datetime64(<span class="string">&quot;Today&quot;</span>, <span class="string">&quot;D&quot;</span>) - np.timedelta64(<span class="number">1</span>, <span class="string">&quot;D&quot;</span>)</span><br><span class="line">today = np.datetime64(<span class="string">&quot;Today&quot;</span>, <span class="string">&quot;D&quot;</span>)</span><br><span class="line">tomorrow = np.datetime64(<span class="string">&quot;Today&quot;</span>, <span class="string">&quot;D&quot;</span>) + np.timedelta64(<span class="number">1</span>, <span class="string">&quot;D&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(yesterday, today, tomorrow)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-get-all-the-dates-corresponding-to-the-month-of-July-2016-★★☆"><a href="#How-to-get-all-the-dates-corresponding-to-the-month-of-July-2016-★★☆" class="headerlink" title="How to get all the dates corresponding to the month of July 2016? (★★☆)"></a>How to get all the dates corresponding to the month of July 2016? (★★☆)</h4><p>(<strong>hint</strong>: np.arange(dtype=datetime64[‘D’]))</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_arr = np.arange(<span class="string">&quot;2016-07&quot;</span>, <span class="string">&quot;2016-08&quot;</span>, dtype = <span class="string">&quot;datetime64[D]&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-compute-A-B-A-2-in-place-without-copy-★★☆"><a href="#How-to-compute-A-B-A-2-in-place-without-copy-★★☆" class="headerlink" title="How to compute ((A+B)*(-A/2)) in place (without copy)? (★★☆)"></a>How to compute ((A+B)*(-A/2)) in place (without copy)? (★★☆)</h4><p>(<strong>hint</strong>: np.add(out=), np.negative(out=), np.multiply(out=), np.divide(out=))</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A = np.eye(<span class="number">3</span>)</span><br><span class="line">B = np.eye(<span class="number">3</span>)</span><br><span class="line">np.add(A, B, out = B)</span><br><span class="line">np.divide(A, <span class="number">2</span>, out = A)</span><br><span class="line">np.negative(A, out = A)</span><br><span class="line">np.multiply(B, A, out = A)</span><br></pre></td></tr></table></figure>
+<h4 id="Extract-the-integer-part-of-a-random-array-using-5-different-methods-★★☆"><a href="#Extract-the-integer-part-of-a-random-array-using-5-different-methods-★★☆" class="headerlink" title="Extract the integer part of a random array using 5 different methods (★★☆)"></a>Extract the integer part of a random array using 5 different methods (★★☆)</h4><p>(<strong>hint</strong>: %, np.floor, np.ceil, astype, np.trunc)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">intarr = np.random.uniform(-<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"><span class="comment">#intarr = intarr//1</span></span><br><span class="line"><span class="comment">#intarr = np.floor(intarr)</span></span><br><span class="line">intarr = intarr.astype(<span class="string">&#x27;int64&#x27;</span>)</span><br><span class="line">intarr</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-5x5-matrix-with-row-values-ranging-from-0-to-4-★★☆"><a href="#Create-a-5x5-matrix-with-row-values-ranging-from-0-to-4-★★☆" class="headerlink" title="Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)"></a>Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)</h4><p>(<strong>hint</strong>: np.arange)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat04 = np.zeros([<span class="number">5</span>, <span class="number">5</span>])</span><br><span class="line">mat04 += np.arange(<span class="number">0</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Consider-a-generator-function-that-generates-10-integers-and-use-it-to-build-an-array-★☆☆"><a href="#Consider-a-generator-function-that-generates-10-integers-and-use-it-to-build-an-array-★☆☆" class="headerlink" title="Consider a generator function that generates 10 integers and use it to build an array (★☆☆)"></a>Consider a generator function that generates 10 integers and use it to build an array (★☆☆)</h4><p>(<strong>hint</strong>: np.fromiter)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>():</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line">        </span><br><span class="line">arr = np.fromiter(func(), dtype = <span class="string">&#x27;int64&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-vector-of-size-10-with-values-ranging-from-0-to-1-both-excluded-★★☆"><a href="#Create-a-vector-of-size-10-with-values-ranging-from-0-to-1-both-excluded-★★☆" class="headerlink" title="Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)"></a>Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)</h4><p>(<strong>hint</strong>: np.linspace)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">11</span>, endpoint = <span class="literal">False</span>)[<span class="number">1</span>:]</span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-random-vector-of-size-10-and-sort-it-★★☆"><a href="#Create-a-random-vector-of-size-10-and-sort-it-★★☆" class="headerlink" title="Create a random vector of size 10 and sort it (★★☆)"></a>Create a random vector of size 10 and sort it (★★☆)</h4><p>(<strong>hint</strong>: sort)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">St = np.random.uniform(-<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"><span class="comment">#St = np.fromiter(St, np.dtype(St[0]))</span></span><br><span class="line">St.sort()</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-sum-a-small-array-faster-than-np-sum-★★☆"><a href="#How-to-sum-a-small-array-faster-than-np-sum-★★☆" class="headerlink" title="How to sum a small array faster than np.sum? (★★☆)"></a>How to sum a small array faster than np.sum? (★★☆)</h4><p>(<strong>hint</strong>: np.add.reduce)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(<span class="number">10</span>)</span><br><span class="line">res = np.add.reduce(arr)</span><br></pre></td></tr></table></figure>
+<h4 id="Consider-two-random-array-A-and-B-check-if-they-are-equal-★★☆"><a href="#Consider-two-random-array-A-and-B-check-if-they-are-equal-★★☆" class="headerlink" title="Consider two random array A and B, check if they are equal (★★☆)"></a>Consider two random array A and B, check if they are equal (★★☆)</h4><p>(<strong>hint</strong>: np.allclose, np.array_equal)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.arange(<span class="number">10</span>)</span><br><span class="line">arr2 = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="comment">#res = np.allclose(arr1, arr2)</span></span><br><span class="line">res = np.array_equal(arr1, arr2)</span><br></pre></td></tr></table></figure>
+<h4 id="Make-an-array-immutable-read-only-★★☆"><a href="#Make-an-array-immutable-read-only-★★☆" class="headerlink" title="Make an array immutable (read-only) (★★☆)"></a>Make an array immutable (read-only) (★★☆)</h4><p>(<strong>hint</strong>: flags.writeable)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = np.arange(<span class="number">10</span>)</span><br><span class="line">arr.flags.writeable = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="Consider-a-random-10x2-matrix-representing-cartesian-coordinates-convert-them-to-polar-coordinates-★★☆"><a href="#Consider-a-random-10x2-matrix-representing-cartesian-coordinates-convert-them-to-polar-coordinates-★★☆" class="headerlink" title="Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates (★★☆)"></a>Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates (★★☆)</h4><p>(<strong>hint</strong>: np.sqrt, np.arctan2)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr = np.random.randint(-<span class="number">10</span>, <span class="number">10</span>, (<span class="number">10</span>, <span class="number">2</span>))</span><br><span class="line">x = arr[:, <span class="number">0</span>]</span><br><span class="line">y = arr[:, <span class="number">1</span>]</span><br><span class="line">r = np.sqrt(x**<span class="number">2</span>+y**<span class="number">2</span>, dtype = <span class="string">&#x27;float16&#x27;</span>)</span><br><span class="line">theta = np.arctan2(x, y)</span><br><span class="line">arr = np.array([r, theta]).T</span><br></pre></td></tr></table></figure>
+<h4 id="Create-random-vector-of-size-10-and-replace-the-maximum-value-by-0-★★☆"><a href="#Create-random-vector-of-size-10-and-replace-the-maximum-value-by-0-★★☆" class="headerlink" title="Create random vector of size 10 and replace the maximum value by 0 (★★☆)"></a>Create random vector of size 10 and replace the maximum value by 0 (★★☆)</h4><p>(<strong>hint</strong>: argmax)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat = np.random.random(<span class="number">10</span>)</span><br><span class="line">mat[np.argmax(mat)] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="Create-a-structured-array-with-x-and-y-coordinates-covering-the-0-1-x-0-1-area-★★☆"><a href="#Create-a-structured-array-with-x-and-y-coordinates-covering-the-0-1-x-0-1-area-★★☆" class="headerlink" title="Create a structured array with x and y coordinates covering the [0,1]x[0,1] area (★★☆)"></a>Create a structured array with <code>x</code> and <code>y</code> coordinates covering the [0,1]x[0,1] area (★★☆)</h4><p>(<strong>hint</strong>: np.meshgrid)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[(0.  , 0.  ) (0.25, 0.  ) (0.5 , 0.  ) (0.75, 0.  ) (1.  , 0.  )]</span><br><span class="line"> [(0.  , 0.25) (0.25, 0.25) (0.5 , 0.25) (0.75, 0.25) (1.  , 0.25)]</span><br><span class="line"> [(0.  , 0.5 ) (0.25, 0.5 ) (0.5 , 0.5 ) (0.75, 0.5 ) (1.  , 0.5 )]</span><br><span class="line"> [(0.  , 0.75) (0.25, 0.75) (0.5 , 0.75) (0.75, 0.75) (1.  , 0.75)]</span><br><span class="line"> [(0.  , 1.  ) (0.25, 1.  ) (0.5 , 1.  ) (0.75, 1.  ) (1.  , 1.  )]]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat = np.zeros((<span class="number">5</span>,<span class="number">5</span>), [(<span class="string">&#x27;x&#x27;</span>,<span class="built_in">float</span>),(<span class="string">&#x27;y&#x27;</span>,<span class="built_in">float</span>)])</span><br><span class="line">mat[<span class="string">&#x27;x&#x27;</span>], mat[<span class="string">&#x27;y&#x27;</span>] = np.meshgrid(np.linspace(<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>),np.linspace(<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="Given-two-arrays-X-and-Y-construct-the-Cauchy-matrix-C-Cij-1-xi-yj"><a href="#Given-two-arrays-X-and-Y-construct-the-Cauchy-matrix-C-Cij-1-xi-yj" class="headerlink" title="Given two arrays, X and Y, construct the Cauchy matrix C (Cij =1/(xi - yj))"></a>Given two arrays, X and Y, construct the Cauchy matrix C (Cij =1/(xi - yj))</h4><p>(<strong>hint</strong>: np.subtract.outer)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">matx = np.arange(<span class="number">5</span>)</span><br><span class="line">maty = matx - <span class="number">0.5</span></span><br><span class="line">matc = <span class="number">1</span>/np.subtract.outer(matx, maty)</span><br></pre></td></tr></table></figure>
+<h4 id="Print-the-minimum-and-maximum-representable-value-for-each-numpy-scalar-type-★★☆"><a href="#Print-the-minimum-and-maximum-representable-value-for-each-numpy-scalar-type-★★☆" class="headerlink" title="Print the minimum and maximum representable value for each numpy scalar type (★★☆)"></a>Print the minimum and maximum representable value for each numpy scalar type (★★☆)</h4><p>(<strong>hint</strong>: np.iinfo, np.finfo, eps)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> dtype <span class="keyword">in</span> [np.int8, np.int32, np.int64]:</span><br><span class="line">   <span class="built_in">print</span>(np.iinfo(dtype).<span class="built_in">min</span>)</span><br><span class="line">   <span class="built_in">print</span>(np.iinfo(dtype).<span class="built_in">max</span>)</span><br><span class="line"><span class="keyword">for</span> dtype <span class="keyword">in</span> [np.float32, np.float64]:</span><br><span class="line">   <span class="built_in">print</span>(np.finfo(dtype).<span class="built_in">min</span>)</span><br><span class="line">   <span class="built_in">print</span>(np.finfo(dtype).<span class="built_in">max</span>)</span><br><span class="line">   <span class="built_in">print</span>(np.finfo(dtype).eps)</span><br></pre></td></tr></table></figure>
+<h4 id="Consider-a-random-vector-with-shape-100-2-representing-coordinates-find-point-by-point-distances-★★☆"><a href="#Consider-a-random-vector-with-shape-100-2-representing-coordinates-find-point-by-point-distances-★★☆" class="headerlink" title="Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)"></a>Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)</h4><p>(<strong>hint</strong>: np.atleast_2d, T, np.sqrt)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vec = np.random.rand(<span class="number">5</span>, <span class="number">2</span>)</span><br><span class="line">vecx, vecy = np.atleast_2d(vec[:,<span class="number">0</span>], vec[:,<span class="number">1</span>])</span><br><span class="line">dis = np.sqrt((vecx.T - vecx) ** <span class="number">2</span> + (vecy.T - vecy) ** <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-convert-a-float-32-bits-array-into-an-integer-32-bits-in-place"><a href="#How-to-convert-a-float-32-bits-array-into-an-integer-32-bits-in-place" class="headerlink" title="How to convert a float (32 bits) array into an integer (32 bits) in place?"></a>How to convert a float (32 bits) array into an integer (32 bits) in place?</h4><p>(<strong>hint</strong>: astype(copy=False))</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec = np.arange(<span class="number">10</span>, dtype = np.float32)</span><br><span class="line">vec = vec.astype(np.int32, copy=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="What-is-the-equivalent-of-enumerate-for-numpy-arrays-★★☆"><a href="#What-is-the-equivalent-of-enumerate-for-numpy-arrays-★★☆" class="headerlink" title="What is the equivalent of enumerate for numpy arrays? (★★☆)"></a>What is the equivalent of enumerate for numpy arrays? (★★☆)</h4><p>(<strong>hint</strong>: np.ndenumerate, np.ndindex)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mat = np.arange(<span class="number">9</span>).reshape(<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> np.ndenumerate(mat):</span><br><span class="line">    <span class="built_in">print</span>(index, value)</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> np.ndindex(mat.shape):</span><br><span class="line">    <span class="built_in">print</span>(index, mat[index])</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-randomly-place-p-elements-in-a-2D-array-★★☆"><a href="#How-to-randomly-place-p-elements-in-a-2D-array-★★☆" class="headerlink" title="How to randomly place p elements in a 2D array? (★★☆)"></a>How to randomly place p elements in a 2D array? (★★☆)</h4><p>(<strong>hint</strong>: np.put, np.random.choice)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p = <span class="number">10</span></span><br><span class="line">mat = np.arange(<span class="number">100</span>).reshape(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(mat)</span><br><span class="line">np.put(mat, np.random.choice(<span class="built_in">range</span>(<span class="number">10</span> * <span class="number">10</span>), p, replace = <span class="literal">False</span>), <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(mat)</span><br></pre></td></tr></table></figure>
+<h4 id="Subtract-the-mean-of-each-row-of-a-matrix-★★☆"><a href="#Subtract-the-mean-of-each-row-of-a-matrix-★★☆" class="headerlink" title="Subtract the mean of each row of a matrix (★★☆)"></a>Subtract the mean of each row of a matrix (★★☆)</h4><p>(<strong>hint</strong>: mean(axis=,keepdims=))</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mat = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, (<span class="number">5</span>, <span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(mat)</span><br><span class="line">mat = mat - mat.mean(axis=<span class="number">1</span>, keepdims=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-sort-an-array-by-the-nth-column-★★☆"><a href="#How-to-sort-an-array-by-the-nth-column-★★☆" class="headerlink" title="How to sort an array by the nth column? (★★☆)"></a>How to sort an array by the nth column? (★★☆)</h4><p>(<strong>hint</strong>: argsort)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">1</span></span><br><span class="line">mat = np.random.randint(<span class="number">0</span>, <span class="number">10</span>, (<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(mat)</span><br><span class="line">mat = mat[mat[:,n].argsort()]</span><br></pre></td></tr></table></figure>
+<h4 id="Find-the-nearest-value-from-a-given-value-in-an-array-★★☆"><a href="#Find-the-nearest-value-from-a-given-value-in-an-array-★★☆" class="headerlink" title="Find the nearest value from a given value in an array (★★☆)"></a>Find the nearest value from a given value in an array (★★☆)</h4><p>(<strong>hint</strong>: np.abs, argmin, flat)</p>
+<p>in <code>array([0.28428161, 0.25229009, 0.80514467, 0.76970704, 0.17243769,
+       0.31141961, 0.24836806, 0.63500349, 0.41708633, 0.87628688])</code></p>
+<p>the nearest value to <code>0.5</code> is <code>0.41708633</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mat = np.array([<span class="number">0.28428161</span>, <span class="number">0.25229009</span>, <span class="number">0.80514467</span>, <span class="number">0.76970704</span>, <span class="number">0.17243769</span>,<span class="number">0.31141961</span>, <span class="number">0.24836806</span>, <span class="number">0.63500349</span>, <span class="number">0.41708633</span>, <span class="number">0.87628688</span>])</span><br><span class="line">num = <span class="number">0.4</span></span><br><span class="line">ans = mat.flat[np.<span class="built_in">abs</span>(mat - num).argmin()]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h4 id="How-to-count-elements-of-an-integer-vector-X-to-an-array-F-based-on-an-index-list-I-★★★"><a href="#How-to-count-elements-of-an-integer-vector-X-to-an-array-F-based-on-an-index-list-I-★★★" class="headerlink" title="How to count elements of an integer vector (X) to an array (F) based on an index list (I)? (★★★)"></a>How to count elements of an integer vector (X) to an array (F) based on an index list (I)? (★★★)</h4><p>(<strong>hint</strong>: np.bincount)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">I = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line"><span class="comment"># your code</span></span><br><span class="line"><span class="built_in">print</span>(F)</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0. 7. 0. 6. 5. 0. 0. 0. 0. 3.]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">I = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">F = np.bincount(I,X)</span><br><span class="line"><span class="built_in">print</span>(F)</span><br></pre></td></tr></table></figure>
+<h4 id="Considering-a-four-dimensions-array-how-to-get-sum-over-the-last-two-axis-at-once-★★★"><a href="#Considering-a-four-dimensions-array-how-to-get-sum-over-the-last-two-axis-at-once-★★★" class="headerlink" title="Considering a four dimensions array, how to get sum over the last two axis at once? (★★★)"></a>Considering a four dimensions array, how to get sum over the last two axis at once? (★★★)</h4><p>(<strong>hint</strong>: sum(axis=(-2,-1)))</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor = np.random.randint(<span class="number">1</span>, <span class="number">10</span>, (<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>))</span><br><span class="line">tensor = tensor.<span class="built_in">sum</span>(axis = (-<span class="number">2</span>, -<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F/" title= "机器学习 02：感知机的对偶形式">
+                    <div class="prevTitle">机器学习 02：感知机的对偶形式</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:2997839760@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/SP-FA" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wx_QRcode.png" />
+                </span>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/qq_QRcode.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/277470241" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="https://steamcommunity.com/profiles/76561198328050646" class="iconfont-archer steam" target="_blank" title=steam></a>
+            
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Import-the-numpy-package-under-the-name-np-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">1.</span> <span class="toc-text">Import the numpy package under the name np (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Print-the-numpy-version-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">2.</span> <span class="toc-text">Print the numpy version (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-vector-of-zeros-of-size-10-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">3.</span> <span class="toc-text">Create a vector of zeros of size 10 (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-find-the-memory-size-of-any-array-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">4.</span> <span class="toc-text">How to find the memory size of any array (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-am-zero-vector-of-size-10-but-the-fifth-value-which-is-1-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">5.</span> <span class="toc-text">Create am zero vector of size 10 but the fifth value which is 1 (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-vector-with-values-ranging-from-10-to-49-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">6.</span> <span class="toc-text">Create a vector with values ranging from 10 to 49 (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Reverse-a-vector-first-element-becomes-last-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">7.</span> <span class="toc-text">Reverse a vector (first element becomes last) (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-3x3-matrix-with-values-ranging-from-0-to-8-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">8.</span> <span class="toc-text">Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Find-indices-of-non-zero-elements-from-1-2-0-0-4-0-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">9.</span> <span class="toc-text">Find indices of non-zero elements from [1,2,0,0,4,0] (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-3x3-identity-matrix-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">10.</span> <span class="toc-text">Create a 3x3 identity matrix (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-3x3x3-array-with-random-values-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">11.</span> <span class="toc-text">Create a 3x3x3 array with random values (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-10x10-array-with-random-values-and-find-the-minimum-and-maximum-values-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">12.</span> <span class="toc-text">Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-random-vector-of-size-30-and-find-the-mean-value-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">13.</span> <span class="toc-text">Create a random vector of size 30 and find the mean value (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-2d-array-with-1-on-the-border-and-0-inside-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">14.</span> <span class="toc-text">Create a 2d array with 1 on the border and 0 inside (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-add-a-border-filled-with-0%E2%80%99s-around-an-existing-array-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">15.</span> <span class="toc-text">How to add a border (filled with 0’s) around an existing array? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-the-result-of-the-following-expression-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">16.</span> <span class="toc-text">What is the result of the following expression? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-5x5-matrix-with-values-1-2-3-4-just-below-the-diagonal-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">17.</span> <span class="toc-text">Create a 5x5 matrix with values 1,2,3,4 just below the diagonal (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-8x8-matrix-and-fill-it-with-a-checkerboard-pattern-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">18.</span> <span class="toc-text">Create a 8x8 matrix and fill it with a checkerboard pattern (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-a-6-7-8-shape-array-what-is-the-index-x-y-z-of-the-100th-element"><span class="toc-number">19.</span> <span class="toc-text">Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-checkerboard-8x8-matrix-using-the-tile-function-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">20.</span> <span class="toc-text">Create a checkerboard 8x8 matrix using the tile function (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Normalize-a-5x5-random-matrix-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">21.</span> <span class="toc-text">Normalize a 5x5 random matrix (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-custom-dtype-that-describes-a-color-as-four-unsigned-bytes-RGBA-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">22.</span> <span class="toc-text">Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multiply-a-5x3-matrix-by-a-3x2-matrix-real-matrix-product-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">23.</span> <span class="toc-text">Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Given-a-1D-array-negate-all-elements-which-are-between-3-and-8-in-place-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">24.</span> <span class="toc-text">Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-the-output-of-the-following-script-Why-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">25.</span> <span class="toc-text">What is the output of the following script? Why? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-an-integer-vector-Z-which-of-these-expressions-are-legal-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">26.</span> <span class="toc-text">Consider an integer vector Z, which of these expressions are legal? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-are-the-result-of-the-following-expressions"><span class="toc-number">27.</span> <span class="toc-text">What are the result of the following expressions?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-round-away-from-zero-a-float-array-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">28.</span> <span class="toc-text">How to round away from zero a float array ? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-find-common-values-between-two-arrays-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">29.</span> <span class="toc-text">How to find common values between two arrays? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-ignore-all-numpy-warnings-not-recommended-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">30.</span> <span class="toc-text">How to ignore all numpy warnings (not recommended)? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Is-the-following-expressions-true-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">31.</span> <span class="toc-text">Is the following expressions true? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-get-the-dates-of-yesterday-today-and-tomorrow-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">32.</span> <span class="toc-text">How to get the dates of yesterday, today and tomorrow? (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-get-all-the-dates-corresponding-to-the-month-of-July-2016-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">33.</span> <span class="toc-text">How to get all the dates corresponding to the month of July 2016? (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-compute-A-B-A-2-in-place-without-copy-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">34.</span> <span class="toc-text">How to compute ((A+B)*(-A&#x2F;2)) in place (without copy)? (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Extract-the-integer-part-of-a-random-array-using-5-different-methods-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">35.</span> <span class="toc-text">Extract the integer part of a random array using 5 different methods (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-5x5-matrix-with-row-values-ranging-from-0-to-4-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">36.</span> <span class="toc-text">Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-a-generator-function-that-generates-10-integers-and-use-it-to-build-an-array-%E2%98%85%E2%98%86%E2%98%86"><span class="toc-number">37.</span> <span class="toc-text">Consider a generator function that generates 10 integers and use it to build an array (★☆☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-vector-of-size-10-with-values-ranging-from-0-to-1-both-excluded-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">38.</span> <span class="toc-text">Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-random-vector-of-size-10-and-sort-it-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">39.</span> <span class="toc-text">Create a random vector of size 10 and sort it (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-sum-a-small-array-faster-than-np-sum-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">40.</span> <span class="toc-text">How to sum a small array faster than np.sum? (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-two-random-array-A-and-B-check-if-they-are-equal-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">41.</span> <span class="toc-text">Consider two random array A and B, check if they are equal (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-an-array-immutable-read-only-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">42.</span> <span class="toc-text">Make an array immutable (read-only) (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-a-random-10x2-matrix-representing-cartesian-coordinates-convert-them-to-polar-coordinates-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">43.</span> <span class="toc-text">Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-random-vector-of-size-10-and-replace-the-maximum-value-by-0-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">44.</span> <span class="toc-text">Create random vector of size 10 and replace the maximum value by 0 (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-a-structured-array-with-x-and-y-coordinates-covering-the-0-1-x-0-1-area-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">45.</span> <span class="toc-text">Create a structured array with x and y coordinates covering the [0,1]x[0,1] area (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Given-two-arrays-X-and-Y-construct-the-Cauchy-matrix-C-Cij-1-xi-yj"><span class="toc-number">46.</span> <span class="toc-text">Given two arrays, X and Y, construct the Cauchy matrix C (Cij &#x3D;1&#x2F;(xi - yj))</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Print-the-minimum-and-maximum-representable-value-for-each-numpy-scalar-type-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">47.</span> <span class="toc-text">Print the minimum and maximum representable value for each numpy scalar type (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consider-a-random-vector-with-shape-100-2-representing-coordinates-find-point-by-point-distances-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">48.</span> <span class="toc-text">Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-convert-a-float-32-bits-array-into-an-integer-32-bits-in-place"><span class="toc-number">49.</span> <span class="toc-text">How to convert a float (32 bits) array into an integer (32 bits) in place?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-the-equivalent-of-enumerate-for-numpy-arrays-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">50.</span> <span class="toc-text">What is the equivalent of enumerate for numpy arrays? (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-randomly-place-p-elements-in-a-2D-array-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">51.</span> <span class="toc-text">How to randomly place p elements in a 2D array? (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Subtract-the-mean-of-each-row-of-a-matrix-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">52.</span> <span class="toc-text">Subtract the mean of each row of a matrix (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-sort-an-array-by-the-nth-column-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">53.</span> <span class="toc-text">How to sort an array by the nth column? (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Find-the-nearest-value-from-a-given-value-in-an-array-%E2%98%85%E2%98%85%E2%98%86"><span class="toc-number">54.</span> <span class="toc-text">Find the nearest value from a given value in an array (★★☆)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-count-elements-of-an-integer-vector-X-to-an-array-F-based-on-an-index-list-I-%E2%98%85%E2%98%85%E2%98%85"><span class="toc-number">55.</span> <span class="toc-text">How to count elements of an integer vector (X) to an array (F) based on an index list (I)? (★★★)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Considering-a-four-dimensions-array-how-to-get-sum-over-the-last-two-axis-at-once-%E2%98%85%E2%98%85%E2%98%85"><span class="toc-number">56.</span> <span class="toc-text">Considering a four dimensions array, how to get sum over the last two axis at once? (★★★)</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 12
+        </div>
+        <!-- search  -->
+        
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/11</span><a class="archive-post-title" href= "/2021/06/11/Python-Package-Numpy-%E7%BB%83%E4%B9%A0%E9%A2%98/" >Python Package：NumPy 练习题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F/" >机器学习 02：感知机的对偶形式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA/" >机器学习 01：感知机</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/20</span><a class="archive-post-title" href= "/2021/05/20/Python-Package-Numpy/" >Python Package：NumPy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href= "/2021/04/25/Python-%E5%AD%A6%E4%B9%A0-07%EF%BC%9A%E6%A8%A1%E5%9D%97/" >Python-学习-07：模块</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2021/04/24/Python-%E5%AD%A6%E4%B9%A0-06%EF%BC%9A%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" >Python 学习 06：异常处理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href= "/2021/04/23/Python-%E5%AD%A6%E4%B9%A0-05%EF%BC%9A%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" >Python 学习 05：文件操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/15</span><a class="archive-post-title" href= "/2021/04/15/Python-%E5%AD%A6%E4%B9%A0-04%EF%BC%9A%E7%B1%BB/" >Python 学习 04：类</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2021/04/14/Python-%E5%AD%A6%E4%B9%A0-03%EF%BC%9A%E5%87%BD%E6%95%B0/" >Python 学习 03：函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href= "/2021/04/13/Python-%E5%AD%A6%E4%B9%A0-02%EF%BC%9A%E8%AF%AD%E5%8F%A5/" >Python 学习 02：语句</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href= "/2021/04/09/Python-%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E8%B1%A1%E7%B1%BB%E5%9E%8B/" >Python 学习 01：基本对象类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span><a class="archive-post-title" href= "/2021/04/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" >我的第一篇博客</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="numpy"><span class="iconfont-archer">&#xe606;</span>numpy</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据类型"><span class="iconfont-archer">&#xe606;</span>数据类型</span>
+    
+        <span class="sidebar-tag-name" data-tags="文件操作"><span class="iconfont-archer">&#xe606;</span>文件操作</span>
+    
+        <span class="sidebar-tag-name" data-tags="机器学习"><span class="iconfont-archer">&#xe606;</span>机器学习</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="python-学习"><span class="iconfont-archer">&#xe60a;</span>python-学习</span>
+    
+        <span class="sidebar-category-name" data-categories="机器学习"><span class="iconfont-archer">&#xe60a;</span>机器学习</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "John Doe"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+        <div class="site-search">
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="iconfont-archer">&#xe609;</i>
+    </span>
+  </div>
+</div>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js" defer></script>
+        <script src="/scripts/search.js" defer></script>
+    
+    <!-- busuanzi  -->
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
