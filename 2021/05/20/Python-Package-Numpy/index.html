@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://sp-fa.github.io/2021/05/20/Python-Package-Numpy/多维索引.png">
 <meta property="og:image" content="https://sp-fa.github.io/2021/05/20/Python-Package-Numpy/整数数组索引.png">
 <meta property="article:published_time" content="2021-05-20T07:41:30.000Z">
-<meta property="article:modified_time" content="2021-06-11T12:32:37.325Z">
+<meta property="article:modified_time" content="2021-06-15T03:33:21.843Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="numpy">
@@ -292,7 +292,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">1.4k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.5k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -553,7 +553,7 @@ height:50vh;
 </li>
 </ol>
 <p><br></p>
-<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><hr>
+<h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><hr>
 <ol>
 <li><p><code>np.unique()</code> : 不重复元素</p>
 </li>
@@ -562,6 +562,10 @@ height:50vh;
 <li><p><code>np.argsort()</code> : 按照元素值的大小将索引排序</p>
 </li>
 <li><p><code>np.bincount()</code> : 自然数数组中各元素的频次</p>
+</li>
+<li><p><code>.T</code> : 转置</p>
+</li>
+<li><p><code>np.linalg.inv()</code> : 求逆矩阵，<code>np.linalg.pinv()</code> 是求伪逆</p>
 </li>
 </ol>
 
@@ -713,7 +717,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84-ndarray"><span class="toc-number">1.</span> <span class="toc-text">多维数组 ndarray</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8E%E5%88%87%E7%89%87"><span class="toc-number">3.</span> <span class="toc-text">索引与切片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E7%B4%A2%E5%BC%95"><span class="toc-number">3.1.</span> <span class="toc-text">多维索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0-ndarray"><span class="toc-number">3.2.</span> <span class="toc-text">更新 ndarray</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E8%BF%9B%E9%98%B6"><span class="toc-number">3.3.</span> <span class="toc-text">索引进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95"><span class="toc-number">3.3.1.</span> <span class="toc-text">整数数组索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E7%B4%A2%E5%BC%95"><span class="toc-number">3.3.2.</span> <span class="toc-text">条件索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%9D%A1%E4%BB%B6%E7%AD%9B%E9%80%89%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.3.</span> <span class="toc-text">一些条件筛选函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E7%BB%B4%E5%BA%A6%E4%B8%8E%E8%BD%B4-Axis"><span class="toc-number">4.</span> <span class="toc-text">数组的维度与轴 Axis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E5%8F%98-ndarray-%E7%9A%84%E5%BD%A2%E7%8A%B6"><span class="toc-number">4.1.</span> <span class="toc-text">改变 ndarray 的形状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%B4"><span class="toc-number">4.2.</span> <span class="toc-text">加轴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD"><span class="toc-number">5.</span> <span class="toc-text">广播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">常用函数</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84-ndarray"><span class="toc-number">1.</span> <span class="toc-text">多维数组 ndarray</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8E%E5%88%87%E7%89%87"><span class="toc-number">3.</span> <span class="toc-text">索引与切片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E7%B4%A2%E5%BC%95"><span class="toc-number">3.1.</span> <span class="toc-text">多维索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0-ndarray"><span class="toc-number">3.2.</span> <span class="toc-text">更新 ndarray</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E8%BF%9B%E9%98%B6"><span class="toc-number">3.3.</span> <span class="toc-text">索引进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95"><span class="toc-number">3.3.1.</span> <span class="toc-text">整数数组索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E7%B4%A2%E5%BC%95"><span class="toc-number">3.3.2.</span> <span class="toc-text">条件索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%9D%A1%E4%BB%B6%E7%AD%9B%E9%80%89%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.3.</span> <span class="toc-text">一些条件筛选函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E7%BB%B4%E5%BA%A6%E4%B8%8E%E8%BD%B4-Axis"><span class="toc-number">4.</span> <span class="toc-text">数组的维度与轴 Axis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E5%8F%98-ndarray-%E7%9A%84%E5%BD%A2%E7%8A%B6"><span class="toc-number">4.1.</span> <span class="toc-text">改变 ndarray 的形状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%B4"><span class="toc-number">4.2.</span> <span class="toc-text">加轴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD"><span class="toc-number">5.</span> <span class="toc-text">广播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">常用方法</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -858,9 +862,22 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 12
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -877,6 +894,11 @@ top:50vh;
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/2021/06/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-03%EF%BC%9A%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" >机器学习 03：支持向量机</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -946,8 +968,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="numpy"><span class="iconfont-archer">&#xe606;</span>numpy</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据类型"><span class="iconfont-archer">&#xe606;</span>数据类型</span>
     
         <span class="sidebar-tag-name" data-tags="文件操作"><span class="iconfont-archer">&#xe606;</span>文件操作</span>
     
@@ -1046,7 +1066,24 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</body>
 </html>
 
 
