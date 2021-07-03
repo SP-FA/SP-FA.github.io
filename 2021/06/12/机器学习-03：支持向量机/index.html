@@ -20,15 +20,15 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="主要思想： 支持向量机（SVM）的基本模型线性支持向量机（SVG）是定义在特征空间上的间隔最大的线性分类器，这使它有别于感知机。SVG 适用于高维小样本，且线性可分的数据。  寻找最大间隔：  距离：距离是一种映射关系，满足： \begin{cases}D(x,y)\ge0,\ D(x,y)&#x3D;0\Leftrightarrow x&#x3D;y\\D(x,y)&#x3D;D(y,x)\\D(x,z)\ne D(x,y)">
+    <meta name="description" content="主要思想： 支持向量机（SVM）的基本模型线性支持支持向量机是定义在特征空间上的间隔最大的线性分类器，这使它有别于感知机。适用于高维小样本，且线性可分的数据。  寻找最大间隔：  距离：距离是一种映射关系，满足： \begin{cases}D(x,y)\ge0,\ D(x,y)&#x3D;0\Leftrightarrow x&#x3D;y\\D(x,y)&#x3D;D(y,x)\\D(x,z)\ne D(x,y)+D(y,z)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习 03：支持向量机">
+<meta property="og:title" content="机器学习 03：线性可分支持向量机">
 <meta property="og:url" content="https://sp-fa.github.io/2021/06/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-03%EF%BC%9A%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="主要思想： 支持向量机（SVM）的基本模型线性支持向量机（SVG）是定义在特征空间上的间隔最大的线性分类器，这使它有别于感知机。SVG 适用于高维小样本，且线性可分的数据。  寻找最大间隔：  距离：距离是一种映射关系，满足： \begin{cases}D(x,y)\ge0,\ D(x,y)&#x3D;0\Leftrightarrow x&#x3D;y\\D(x,y)&#x3D;D(y,x)\\D(x,z)\ne D(x,y)">
+<meta property="og:description" content="主要思想： 支持向量机（SVM）的基本模型线性支持支持向量机是定义在特征空间上的间隔最大的线性分类器，这使它有别于感知机。适用于高维小样本，且线性可分的数据。  寻找最大间隔：  距离：距离是一种映射关系，满足： \begin{cases}D(x,y)\ge0,\ D(x,y)&#x3D;0\Leftrightarrow x&#x3D;y\\D(x,y)&#x3D;D(y,x)\\D(x,z)\ne D(x,y)+D(y,z)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-12T02:36:21.000Z">
-<meta property="article:modified_time" content="2021-06-12T03:39:59.392Z">
+<meta property="article:modified_time" content="2021-07-03T06:10:13.455Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -36,7 +36,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>机器学习 03：支持向量机 · 欢迎来到 SP-FA 的博客 ~</title>
+    <title>机器学习 03：线性可分支持向量机 · 欢迎来到 SP-FA 的博客 ~</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -231,7 +231,7 @@
                 <a href="/" >SP-FA 的博客</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">机器学习 03：支持向量机</a>
+                <a href="#" class="post-name">机器学习 03：线性可分支持向量机</a>
             </div>
     </div>
     
@@ -261,7 +261,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            机器学习 03：支持向量机
+            机器学习 03：线性可分支持向量机
             <!-- 404 -->
             
         </h1>
@@ -288,7 +288,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">230</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.4k</span>Reading time: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -413,7 +413,7 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h1 id="主要思想："><a href="#主要思想：" class="headerlink" title="主要思想："></a>主要思想：</h1><hr>
-<p>支持向量机（SVM）的基本模型线性支持向量机（SVG）是定义在特征空间上的<strong>间隔最大</strong>的线性分类器，这使它有别于感知机。SVG 适用于高维小样本，且线性可分的数据。</p>
+<p>支持向量机（SVM）的基本模型线性支持支持向量机是定义在特征空间上的<strong>间隔最大</strong>的线性分类器，这使它有别于感知机。适用于高维小样本，且线性可分的数据。</p>
 <p><br></p>
 <h1 id="寻找最大间隔："><a href="#寻找最大间隔：" class="headerlink" title="寻找最大间隔："></a>寻找最大间隔：</h1><hr>
 <p><br></p>
@@ -422,8 +422,69 @@ height:50vh;
 <p><br></p>
 <h2 id="间隔："><a href="#间隔：" class="headerlink" title="间隔："></a>间隔：</h2><p>距超平面最近的点到平面的距离的两倍。由此我们可以推出间隔的计算公式：</p>
 <script type="math/tex; mode=display">\gamma_i=2\frac{\vec w\cdot\vec x_i+b}{\parallel \vec w\parallel}</script><p>而其中距超平面最近的点的间隔是 $\gamma = \min\limits_{i=1,2,3\cdots}\gamma_i$</p>
-<p>我们要寻找合适的 $(\vec w,b)$，使得间隔最大，也就是 $\max\limits_{\vec w,b}\gamma$</p>
-
+<p>我们要寻找合适的 $(\vec w,b)$，使得间隔最大，也就是 </p>
+<script type="math/tex; mode=display">\max\limits_{\vec w,\ b}\gamma\\s.t.\forall i\ (\vec w\vec x_i+b)y_i>0</script><p>但是寻找的过程非常的麻烦，所以我们要对此进行优化。</p>
+<p><br></p>
+<h3 id="优化目标函数"><a href="#优化目标函数" class="headerlink" title="优化目标函数"></a>优化目标函数</h3><blockquote>
+<p>支持向量机的缩放引理：假设找到一组 $(\vec w,b)$，对于$\forall r&gt;0$，$(r\vec {w},rb)$ 仍是解</p>
+</blockquote>
+<p>令引理中的 $r=\gamma$：</p>
+<script type="math/tex; mode=display">\begin{aligned}y_ir_i=y_i(\frac{\vec w}{\parallel\vec w\parallel}\cdot x_i+\frac{b}{\parallel\vec w\parallel})&\ge\gamma\\y_i(\frac{\vec w}{\parallel\vec w\parallel\gamma}\cdot x_i+\frac{b}{\parallel\vec w\parallel\gamma})&\ge1\end{aligned}</script><p>其中 $\parallel\vec w\parallel$ 和 $\gamma$ 都是标量，所以令：</p>
+<script type="math/tex; mode=display">\vec w^*=\frac{\vec w}{\parallel\vec w\parallel\gamma}\\b^*=\frac{b}{\parallel\vec w\parallel\gamma}</script><p>于是有：</p>
+<script type="math/tex; mode=display">y_i(\vec w^*\vec x_i+b^*)\ge1</script><p>也就是说，我们总能通过放缩使得间隔为 1 并且解为 $(\vec w^*,b^*)$</p>
+<p>由于 $(\vec w^*,b^*)$ 和 $(\vec w,b)$ 是倍数关系，于是我们的目标就变成了：</p>
+<script type="math/tex; mode=display">\max\limits_{\vec w^*,b^*}\gamma=\max\limits_{\vec w^*,b^*}\frac{2}{\parallel\vec w^*\parallel}\min\limits_i(\vec w^*\cdot x_i+b^*)=\max\limits_{\vec w^*,b^*}\frac{2}{\parallel\vec w^*\parallel}</script><p>取倒数使得求最大值变成求最小值，方便起见，我们把 $(\vec w^*,b^*)$ 写为 $(\vec w,b)$，此时，目标函数变成了：</p>
+<script type="math/tex; mode=display">\min\limits_{\vec w,b}\frac{1}{2}\parallel\vec w\parallel\\s.t.\ y_i(\vec w\cdot\vec x_i+b)\ge1</script><p>带有约束的最值问题，可以想到使用拉格朗日乘子法来求目标函数。</p>
+<p><br></p>
+<h3 id="拉格朗日乘子法"><a href="#拉格朗日乘子法" class="headerlink" title="拉格朗日乘子法"></a>拉格朗日乘子法</h3><script type="math/tex; mode=display">L(\vec w,b,\vec\alpha)=\frac{1}{2}\parallel\vec w\parallel-\sum\limits_{i=1}^N\alpha_i(y_i(\vec w\cdot\vec x_i+b)-1)\\s.t.\ \alpha_i\ge0</script><p>令 $\theta(\vec w)=\max\limits_{\alpha_i\ge0}L(\vec w,b,\vec\alpha)$</p>
+<script type="math/tex; mode=display">\theta(\vec w)=\begin{cases}\frac{1}{2}\parallel\vec w\parallel^2&\vec w,b\ 满足约束\\\infty&\vec w,b\ 不满足约束\end{cases}</script><p>于是原约束问题就等价于：</p>
+<script type="math/tex; mode=display">\min\limits_{\vec w,b}\theta(\vec w)=\min\limits_{\vec w,b}\max\limits_{\alpha_i\ge0}L(\vec w,b,\vec\alpha)</script><p>这样我们就把一个带有约束的最值问题转化成了无约束最值问题。但是求解这个新的约束问题过程非常复杂，所以我们需要使用拉格朗日函数的对偶性。</p>
+<p><br></p>
+<h3 id="拉格朗日函数的对偶性"><a href="#拉格朗日函数的对偶性" class="headerlink" title="拉格朗日函数的对偶性"></a>拉格朗日函数的对偶性</h3><p>设：</p>
+<script type="math/tex; mode=display">\min\limits_{\vec w,b}\max\limits_{\alpha_i\ge0}L(\vec w,b,\vec\alpha)=p^*</script><p>把 $\min$ 和 $\max$ 互换一下：</p>
+<script type="math/tex; mode=display">\max\limits_{\alpha_i\ge0}\min\limits_{\vec w,b}L(\vec w,b,\vec\alpha)=d^*</script><p>通常情况下，$p^*\ge d^*$，要使等号成立，需要满足两个条件：</p>
+<ol>
+<li><p>优化问题是凸优化问题</p>
+</li>
+<li><p>满足 $KKT$ 条件</p>
+</li>
+</ol>
+<p><br></p>
+<hr>
+<h4 id="凸优化问题"><a href="#凸优化问题" class="headerlink" title="凸优化问题"></a>凸优化问题</h4><blockquote>
+<p>凸优化问题 (Convex optimization problem) 要求目标函数为凸函数，而且定义域为凸集</p>
+</blockquote>
+<p>凸函数：</p>
+<blockquote>
+<p>若 $f^{\prime\prime}(x)\ge0$，则 $f(x)$ 为凸函数。</p>
+</blockquote>
+<p>显然 $\theta(\vec w)$ 是凸函数</p>
+<p>凸集：</p>
+<blockquote>
+<p>当集合 $C$ 中任意两点之间的线段上的点也在 $C$ 内，则这个集合是凸集。</p>
+</blockquote>
+<p>所以 $\theta(\vec w)$ 的定义域是一个凸集。</p>
+<p><br> </p>
+<h4 id="KKT-条件"><a href="#KKT-条件" class="headerlink" title="$KKT$ 条件"></a>$KKT$ 条件</h4><ol>
+<li><p>主问题可行： $y_i(\vec w\cdot\vec x_i+b)-1\ge0$</p>
+</li>
+<li><p>对偶问题可行： $\alpha_i\ge0$</p>
+</li>
+<li><p>互补松弛： $\alpha_i(y_i(\vec w\cdot\vec x_i+b)-1)=0$</p>
+</li>
+</ol>
+<hr>
+<p>等号成立，所以可以计算 $d^*$，令 $L(\vec w,b,\vec\alpha)$ 对 $\vec w$ 和 $b$ 的偏导为 0 可得：</p>
+<script type="math/tex; mode=display">\vec w=\sum\limits_{i=1}^N\alpha_iy_i\vec x_i\\\sum\limits_{i=1}^N\alpha_iy_i=0</script><p>带回 $L(\vec w,b,\vec\alpha)$：</p>
+<script type="math/tex; mode=display">\min\limits_{\vec w,b}L(\vec w,b,\vec\alpha)=-\frac{1}{2}\sum\limits_{i=1}^N\sum\limits_{j=1}^N\alpha_i\alpha_jy_iy_j(\vec x_i\cdot\vec x_j)+\sum\limits_{i=1}^N\alpha_i</script><p>对上式求最大值，即：</p>
+<script type="math/tex; mode=display">\min\limits_{\alpha_i\ge0}\left(\frac{1}{2}\sum\limits_{i=1}^N\sum\limits_{j=1}^N\alpha_i\alpha_jy_iy_j(\vec x_i\cdot\vec x_j)-\sum\limits_{i=1}^N\alpha_i\right)\\s.t. \sum\limits_{i=1}^N\alpha_iy_i=0</script><p>对于上式，可以使用<a href="">序列最小优化算法（SMO）</a>求解 $\vec\alpha^*$，进而求出 $\vec w,b$。</p>
+<p>通过以下条件：</p>
+<script type="math/tex; mode=display">\begin{cases}KKT\ 条件\\\vec w=\sum\limits_{i=1}^N\alpha_iy_i\vec x_i\\\sum\limits_{i=1}^N\alpha_iy_i=0\end{cases}</script><p>由于 $\vec w\ne0$，可以推知至少存在一个 $\alpha_i^*&gt;0$ 且对于此 $i$ 有</p>
+<script type="math/tex; mode=display">y_i(\vec w^*\cdot\vec x_i+b^*)=1</script><p>也就是说，对于任意训练样本 $(\vec x_i,y_i)$，总有 $\alpha_i=0$ 或者 $y_i(\vec w\cdot\vec x_i+b)=1$ 。而 $y_i(\vec w\cdot\vec x_i+b)=1$ 表示该点位于最大间隔边界上，也就是说它是一个支持向量。</p>
+<p>这显示出了支持向量机的一个重要性质：<strong>训练完成后，大部分的训练样本都不需要保留，最终模型仅与支持向量有关</strong>。</p>
+<p><br></p>
+<p>调库实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line">My_Data = datasets.load_iris()</span><br><span class="line">x = My_Data[<span class="string">&#x27;data&#x27;</span>]</span><br><span class="line">y = My_Data[<span class="string">&#x27;target&#x27;</span>]</span><br><span class="line">train_x, test_x, train_y, test_y = train_test_split(x, y, test_size = <span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">clf = svm.SVC(kernel=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">clf.fit(train_x, train_y)</span><br><span class="line"></span><br><span class="line">clf.predict(test_x)</span><br><span class="line"><span class="built_in">print</span>(clf.score(test_x, test_y))</span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
@@ -567,7 +628,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">主要思想：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E5%A4%A7%E9%97%B4%E9%9A%94%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">寻找最大间隔：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">距离：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%B4%E9%9A%94%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">间隔：</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">主要思想：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E5%A4%A7%E9%97%B4%E9%9A%94%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">寻找最大间隔：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">距离：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%B4%E9%9A%94%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">间隔：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.1.</span> <span class="toc-text">优化目标函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95"><span class="toc-number">2.2.2.</span> <span class="toc-text">拉格朗日乘子法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%B9%E5%81%B6%E6%80%A7"><span class="toc-number">2.2.3.</span> <span class="toc-text">拉格朗日函数的对偶性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%B8%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">凸优化问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KKT-%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">$KKT$ 条件</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -747,7 +808,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/2021/06/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-03%EF%BC%9A%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" >机器学习 03：支持向量机</a>
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/2021/06/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-03%EF%BC%9A%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" >机器学习 03：线性可分支持向量机</a>
         </li>
     
     
