@@ -20,15 +20,15 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="概述： $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了，否则在每一步优化中，挑选出诸多参数 $a_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $a_i,a_j$ 作为变量，其余参数都视为常数，问题就变成了类似于二次方程求最大值的">
+    <meta name="description" content="概述： $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习 04：SMO 算法">
 <meta property="og:url" content="https://sp-fa.github.io/2021/07/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04%EF%BC%9ASMO%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述： $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了，否则在每一步优化中，挑选出诸多参数 $a_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $a_i,a_j$ 作为变量，其余参数都视为常数，问题就变成了类似于二次方程求最大值的">
+<meta property="og:description" content="概述： $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-14T06:32:18.000Z">
-<meta property="article:modified_time" content="2021-07-14T07:04:32.547Z">
+<meta property="article:modified_time" content="2021-07-14T07:26:13.799Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -288,7 +288,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">182</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">233</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -413,7 +413,10 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h1 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h1><hr>
-<p>$SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了，否则在每一步优化中，挑选出诸多参数 $a_k\ (k=1,2,\cdots,n)$ 中的两个参数 $a_i,a_j$ 作为变量，其余参数都视为常数，问题就变成了类似于二次方程求最大值的问题，从而我们就能求出解析解，这两个变量中，一个是违反 KKT 条件最严重的那一个，另一个由约束条件自动确定一个。</p>
+<p>$SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k=1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就变成了类似于二次方程求最大值的问题，从而我们就能求出解析解，这两个变量中，一个是违反 KKT 条件最严重的那一个，另一个由约束条件自动确定一个。</p>
+<p><br></p>
+<h1 id="选择变量的启发式方法："><a href="#选择变量的启发式方法：" class="headerlink" title="选择变量的启发式方法："></a>选择变量的启发式方法：</h1><hr>
+<h2 id="选择第一个变量："><a href="#选择第一个变量：" class="headerlink" title="选择第一个变量："></a>选择第一个变量：</h2><p>在 SMO 中，我们称第一个变量为外循环。外循环取的是样本中违反 KKT 条件最严重的点。</p>
 
     </article>
     <!-- license  -->
@@ -558,7 +561,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">概述：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">概述：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%8F%98%E9%87%8F%E7%9A%84%E5%90%AF%E5%8F%91%E5%BC%8F%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">选择变量的启发式方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">选择第一个变量：</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
