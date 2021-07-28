@@ -20,27 +20,24 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="NumPy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate">
+    <meta name="description" content="tf.keras.layers.Conv2D() 函数Conv2D （二维卷积层） 这一层创建了一个卷积核，它与这一层的输入卷积以产生一个输出张量 当使用此层作为模型的第一层时，提供关键字参数 input_shape (整数元组，不包括样本轴，不需要写batch_size) 12345678910111213141516def __init__(self, filters,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python Package：NumPy">
-<meta property="og:url" content="https://sp-fa.github.io/2021/05/20/Python-Package-Numpy/index.html">
+<meta property="og:title" content="keras.layers.Conv2D() 函数参数">
+<meta property="og:url" content="https://sp-fa.github.io/2021/07/28/keras.layers.Conv2D()-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="NumPy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate">
+<meta property="og:description" content="tf.keras.layers.Conv2D() 函数Conv2D （二维卷积层） 这一层创建了一个卷积核，它与这一层的输入卷积以产生一个输出张量 当使用此层作为模型的第一层时，提供关键字参数 input_shape (整数元组，不包括样本轴，不需要写batch_size) 12345678910111213141516def __init__(self, filters,">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sp-fa.github.io/2021/05/20/Python-Package-Numpy/数据类型.png">
-<meta property="og:image" content="https://sp-fa.github.io/2021/05/20/Python-Package-Numpy/多维索引.png">
-<meta property="og:image" content="https://sp-fa.github.io/2021/05/20/Python-Package-Numpy/整数数组索引.png">
-<meta property="article:published_time" content="2021-05-20T07:41:30.000Z">
-<meta property="article:modified_time" content="2021-06-15T03:33:21.843Z">
+<meta property="article:published_time" content="2021-07-28T07:23:10.000Z">
+<meta property="article:modified_time" content="2021-07-28T07:31:44.522Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="numpy">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="TensorFlow">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sp-fa.github.io/2021/05/20/Python-Package-Numpy/数据类型.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>Python Package：NumPy · 欢迎来到 SP-FA 的博客 ~</title>
+    <title>keras.layers.Conv2D() 函数参数 · 欢迎来到 SP-FA 的博客 ~</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -235,7 +232,7 @@
                 <a href="/" >SP-FA 的博客</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Python Package：NumPy</a>
+                <a href="#" class="post-name">keras.layers.Conv2D() 函数参数</a>
             </div>
     </div>
     
@@ -259,13 +256,13 @@ height:50vh;
     <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/Numpy.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/machineLearning.png)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Python Package：NumPy
+            keras.layers.Conv2D() 函数参数
             <!-- 404 -->
             
         </h1>
@@ -286,18 +283,20 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "numpy">numpy</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "机器学习">机器学习</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "TensorFlow">TensorFlow</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">1.5k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
+                        <span>Word count: <span class="post-count word-count">767</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2021/05/20</span>
+                    <span class="post-intro-time">2021/07/28</span>
                     
                     <span class="shareWrapper">
                         <span class="iconfont-archer shareIcon">&#xe71d;</span>
@@ -416,158 +415,43 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <blockquote>
-<p><strong>NumPy</strong> is a library for the Python programming language, adding support for <strong>large, multi-dimensional arrays and matrices</strong>, along with a large collection of <strong>high-level mathematical functions</strong> to operate on these arrays.</p>
-</blockquote>
+        <h1 id="tf-keras-layers-Conv2D-函数"><a href="#tf-keras-layers-Conv2D-函数" class="headerlink" title="tf.keras.layers.Conv2D() 函数"></a>tf.keras.layers.Conv2D() 函数</h1><p>Conv2D （二维卷积层）</p>
+<p>这一层创建了一个卷积核，它与这一层的输入卷积以产生一个输出张量</p>
+<p>当使用此层作为模型的第一层时，提供关键字参数 <code>input_shape</code> (整数元组，不包括样本轴，不需要写batch_size)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, filters,</span></span></span><br><span class="line"><span class="function"><span class="params">             kernel_size,</span></span></span><br><span class="line"><span class="function"><span class="params">             strides=(<span class="params"><span class="number">1</span>, <span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="function"><span class="params">             padding=<span class="string">&#x27;valid&#x27;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             data_format=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             dilation_rate=(<span class="params"><span class="number">1</span>, <span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="function"><span class="params">             activation=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             use_bias=<span class="literal">True</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             kernel_initializer=<span class="string">&#x27;glorot_uniform&#x27;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             bias_initializer=<span class="string">&#x27;zeros&#x27;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             kernel_regularizer=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             bias_regularizer=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             activity_regularizer=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             kernel_constraint=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             bias_constraint=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             **kwargs</span>):</span></span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h1 id="多维数组-ndarray"><a href="#多维数组-ndarray" class="headerlink" title="多维数组 ndarray"></a>多维数组 ndarray</h1><hr>
-<p><code>NumPy</code> 主要由多维数组 <code>ndarray</code> (一个用来储存同一种数据类型的有序容器), 和用来操纵 <code>ndarry</code> 的函数组成. <code>ndarray</code> 是 <code>NumPy</code> 核心概念</p>
-<p><code>ndarray</code> 中的元素的可以是整数, 浮点数, 固定长度的字符串, 等等, 还可以是任何 <code>Python</code> 对象的 <code>reference</code> (并不储存对象本身) 这些元素称为标量 <code>scalar</code></p>
-<p><code>ndarrays</code> 是同质的：即其所有元素在内存中占据了同样的大小，每一个元素的数据类型对象dtype是一样的</p>
-<p><code>ndarray</code> 中的元素可以用整数(位置)来索引，这和 <code>list</code> 很像, 但 <code>ndarray</code> 可以是多维的 (有多个轴 <code>axis</code>)</p>
-<p>一个 <code>ndarray</code> 在计算机内存中由两个部分组成：</p>
-<ol>
-<li><p>组成了 <code>ndarray</code> 的 <code>scalar</code></p>
-</li>
-<li><p><code>ndarray</code> 的头文件, 定义了数组中 <code>scalar</code> 唯一的数据类型</p>
-</li>
-</ol>
+<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><strong>filters</strong></p>
+<p>int 类型，表示卷积核个数，filters 影响的是最后输入结果的的第四个维度的变化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Conv2D</span><br><span class="line"></span><br><span class="line">input_shape = (<span class="number">4</span>, <span class="number">600</span>, <span class="number">600</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">input</span> = tf.random.normal(input_shape)</span><br><span class="line">x = keras.layers.Conv2D(<span class="number">64</span>, (<span class="number">1</span>, <span class="number">1</span>), strides=(<span class="number">1</span>, <span class="number">1</span>), name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(x.shape)</span><br><span class="line"></span><br><span class="line">OUTPUT:</span><br><span class="line">(<span class="number">4</span>, <span class="number">600</span>, <span class="number">600</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><hr>
-<p><code>ndarray</code> 中的元素的可以是整数，浮点数，字符串，等等，还可以是任何 <code>Python</code> 对象的 <code>reference</code> (并不储存对象本身)。与数组对应，这些元素统称为标量 <code>scalar</code></p>
-<p>以下是这些标量的数据类型对象之间的继承关系：</p>
-<p><img src="数据类型.png" alt="数据类型"></p>
-<p>对象类型 <code>np.object_</code></p>
-<ol>
-<li><code>object_</code> : 任何 <code>Python</code> 对象的 <code>reference</code> ，而非对象本身。但是在使用时会返回这个对象本身</li>
-</ol>
-<p>数字类型 <code>np.number</code></p>
-<ol>
-<li><p><code>bool_</code> : 布尔型数据类型（True 或者 False）</p>
-</li>
-<li><p><code>int_</code> : 默认的整数类型（类似于 C 语言中的 <code>long</code>，<code>int32</code> 或 <code>int64</code>）</p>
-</li>
-<li><p><code>intc</code> : 与 C 的 <code>int</code> 类型一样，一般是 <code>int32</code> 或 <code>int64</code></p>
-</li>
-<li><p><code>intp</code> : 用于索引的整数类型（类似于 C 的 <code>ssize_t</code>，一般情况下仍然是 <code>int32</code> 或 <code>int64</code>）</p>
-</li>
-<li><p><code>int8</code> : 字节（-128 to 127）</p>
-</li>
-<li><p><code>int16</code> : 整数（-32768 to 32767）</p>
-</li>
-<li><p><code>int32</code> : 整数（-2147483648 to 2147483647）</p>
-</li>
-<li><p><code>int64</code> : 整数（-9223372036854775808 to 9223372036854775807）</p>
-</li>
-<li><p><code>uint8</code> : 无符号整数（0 to 255）</p>
-</li>
-<li><p><code>uint16</code> : 无符号整数（0 to 65535）</p>
-</li>
-<li><p><code>uint32</code> : 无符号整数（0 to 4294967295）</p>
-</li>
-<li><p><code>uint64</code> : 无符号整数（0 to 18446744073709551615）</p>
-</li>
-<li><p><code>float_</code> : <code>float64</code> 类型的简写</p>
-</li>
-<li><p><code>float16</code> : 半精度浮点数，包括：1 个符号位，5 个指数位，10 个尾数位</p>
-</li>
-<li><p><code>float32</code> : 单精度浮点数，包括：1 个符号位，8 个指数位，23 个尾数位</p>
-</li>
-<li><p><code>float64</code> : 双精度浮点数，包括：1 个符号位，11 个指数位，52 个尾数位</p>
-</li>
-<li><p><code>complex_</code> : <code>complex128</code> 类型的简写，即 128 位复数</p>
-</li>
-<li><p><code>complex64</code> : 复数，表示双 32 位浮点数（实数部分和虚数部分）</p>
-</li>
-<li><p><code>complex128</code> : 复数，表示双 64 位浮点数（实数部分和虚数部分）</p>
-</li>
-</ol>
-<p>字符类型 <code>np.character</code></p>
-<ol>
-<li><p><code>str_</code> : 字符串</p>
-</li>
-<li><p><code>unicode_</code> : <code>unicode</code> 字符串，默认是 <code>UTF8</code>，支持中文</p>
-</li>
-</ol>
-<p>它们的方法和属性与 <code>Python</code> 原生的 <code>str</code> 一致</p>
-<p>有些标量的数据类型对象 <code>dtype</code> 与 <code>Python</code> 中的基本数据类型对象 <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code> 概念上是一样的，两者也可以很容易地互相转换和比较数值大小，但是他们是不同的对象</p>
+<p><strong>kernel_size</strong></p>
+<p>表示卷积核的大小，如果是方阵可以直接写成一个数，影响的是输出结果中间两个数据的维度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = Conv2D(<span class="number">64</span>, (<span class="number">2</span>, <span class="number">2</span>), strides=(<span class="number">1</span>, <span class="number">1</span>), name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line"><span class="comment">#or Conv2D(64, 2, strides=(1, 1), name=&#x27;conv1&#x27;)(input)</span></span><br><span class="line"><span class="built_in">print</span>(x.shape)</span><br><span class="line"></span><br><span class="line">OUTPUT:</span><br><span class="line">(<span class="number">4</span>, <span class="number">599</span>, <span class="number">599</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h1 id="索引与切片"><a href="#索引与切片" class="headerlink" title="索引与切片"></a>索引与切片</h1><hr>
-<p><code>numpy</code> 保留了 <code>Python</code> 中索引与切片的操作，并且可以针对多维数组</p>
-<p>索引会返回一个 <code>scalar</code>，切片会返回一个 <code>ndarray</code></p>
+<p><strong>strides</strong></p>
+<p>tuple (int, int) 步长，同样会影响输出的中间两个维度，值得注意的是，括号里的数据可以不一致，分别控制横坐标和纵坐标</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = Conv2D(<span class="number">64</span>, <span class="number">1</span>, strides=(<span class="number">2</span>, <span class="number">2</span>), name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(x.shape)</span><br><span class="line"></span><br><span class="line">OUTPUT:</span><br><span class="line">(<span class="number">4</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="多维索引"><a href="#多维索引" class="headerlink" title="多维索引"></a>多维索引</h2><hr>
-<p>不同维度之间用“,”隔开。</p>
-<p><img src="多维索引.png" alt="多维索引"></p>
+<p><strong>padding</strong></p>
+<p>是否对周围进行填充，<code>same</code> 即使通过 kernel_size 缩小了维度，但是四周会填充 0，保持原先的维度；<code>valid</code> 表示存储不为 0 的有效信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = Conv2D(<span class="number">64</span>, <span class="number">1</span>, strides=(<span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&quot;same&quot;</span> , name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line">b = Conv2D(<span class="number">64</span>, <span class="number">3</span>, strides=(<span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">&quot;same&quot;</span> , name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line">c = Conv2D(<span class="number">64</span>, <span class="number">3</span>, strides=(<span class="number">1</span>, <span class="number">1</span>), padding=<span class="string">&quot;same&quot;</span> , name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line">d = Conv2D(<span class="number">64</span>, <span class="number">3</span>, strides=(<span class="number">1</span>, <span class="number">1</span>), padding=<span class="string">&quot;valid&quot;</span>, name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(a.shape, b.shape, c.shape, d.shape)</span><br><span class="line"></span><br><span class="line">OUTPUT:</span><br><span class="line">(<span class="number">4</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">64</span>)</span><br><span class="line">(<span class="number">4</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">64</span>)</span><br><span class="line">(<span class="number">4</span>, <span class="number">600</span>, <span class="number">600</span>, <span class="number">64</span>)</span><br><span class="line">(<span class="number">4</span>, <span class="number">598</span>, <span class="number">598</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="更新-ndarray"><a href="#更新-ndarray" class="headerlink" title="更新 ndarray"></a>更新 <code>ndarray</code></h2><hr>
-<p>只需对该 <code>ndarray</code> 做索引，并对结果“赋值”。可以使用一个 <code>scalar</code> 更新，也可以使用另一个 <code>ndarray</code> 更新，但需要注意 <code>shape</code> 和 <code>dtype</code> 是否匹配</p>
+<p><strong>activation</strong></p>
+<p>激活函数，如果 <code>activation</code> 不是 <code>None</code>，则它会应用于输出</p>
 <p><br></p>
-<h2 id="索引进阶"><a href="#索引进阶" class="headerlink" title="索引进阶"></a>索引进阶</h2><hr>
-<h3 id="整数数组索引"><a href="#整数数组索引" class="headerlink" title="整数数组索引"></a>整数数组索引</h3><p>使用一个整数数组（<code>list</code>, <code>tuple</code> 或 <code>ndarray</code>）来切割</p>
-<p><img src="整数数组索引.png" alt="整数数组索引"></p>
-<h3 id="条件索引"><a href="#条件索引" class="headerlink" title="条件索引"></a>条件索引</h3><p>使用逻辑表达式来筛选数组中的元素</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], [<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;我们的数组是：&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;大于 5 的元素是：&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(x[x &gt;  <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="一些条件筛选函数"><a href="#一些条件筛选函数" class="headerlink" title="一些条件筛选函数"></a>一些条件筛选函数</h3><ol>
-<li><p><code>np.argmax()</code>, <code>np.argmin()</code> : 返回沿给定轴最大和最小元素的索引</p>
-</li>
-<li><p><code>np.nonzero()</code> : 返回输入数组中非零元素的索引</p>
-</li>
-<li><p><code>np.where()</code> : 返回输入数组中满足给定条件的元素的索引</p>
-</li>
-<li><p><code>np.extract()</code> : 根据某个条件从数组中抽取元素，返回满条件的元素</p>
-</li>
-</ol>
+<p><strong>use_bias</strong></p>
+<p>boolean，表示是否使用偏置量，如果 <code>use_bias</code> 为真，则创建一个偏置项并添加到输出中</p>
 <p><br></p>
-<h1 id="数组的维度与轴-Axis"><a href="#数组的维度与轴-Axis" class="headerlink" title="数组的维度与轴 Axis"></a>数组的维度与轴 <code>Axis</code></h1><hr>
-<p><code>ndarray</code> 的维度 <code>ndim</code> 即指明了其轴的数量。0 轴定义为“最里面”的那个一维数组。</p>
+<p><strong>data_format</strong></p>
+<p>用于规定 <code>input_shape</code> 的格式</p>
+<p>如果不填写，默认是 <code>channels_last</code>，否则可以填写 <code>channels_first</code>。前者的会把 <code>input_shape</code> 这个三元组给识别成 (batch_size, height, width, channels)，后者则会识别成 (batch_size, channels, height, width) 不过样本轴 (batch_size) 不需要自己填写</p>
 <p><br></p>
-<h2 id="改变-ndarray-的形状"><a href="#改变-ndarray-的形状" class="headerlink" title="改变 ndarray 的形状"></a>改变 <code>ndarray</code> 的形状</h2><hr>
-<p>通过 <code>.reshape()</code> 方法可以改变数组的形状。</p>
+<p><strong>dilation_rate</strong></p>
+<p>int, tuple(int, int), list[int, int]，指定用于扩展卷积的扩展率。可以是单个整数，为所有空间维度指定相同的值。该参数定义了卷积核处理数据时各值的间距。 </p>
+<p>在相同的计算条件下，该参数提供了更大的感受野。该参数经常用在实时图像分割中。当网络层需要较大的感受野，但计算资源有限而无法提高卷积核数量或大小时，可以考虑使用。</p>
 <p><br></p>
-<h2 id="加轴"><a href="#加轴" class="headerlink" title="加轴"></a>加轴</h2><hr>
-<p><code>np.newaxis</code> : 在使用这句话的位置增加一条轴</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.zeros(<span class="number">10</span>)</span><br><span class="line">b = a[:, np.newaxis]</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line">c = a[np.newaxis, :]</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h1 id="广播"><a href="#广播" class="headerlink" title="广播"></a>广播</h1><hr>
-<p>当运算中的 2 个数组的形状不同时，<code>numpy</code> 将自动触发广播机制</p>
-<p>广播的规则：</p>
-<ol>
-<li><p>输出数组的形状是输入数组形状的各个维度上的最大值</p>
-</li>
-<li><p>输入数组的每个轴和输出数组的对应轴的长度相同, 或者该轴长度为 1</p>
-</li>
-<li><p>输入数组若维度低于输出数组，那么在该数组的形状前加1直至补齐</p>
-</li>
-<li><p>输入数组若某轴的长度为1，则沿着此轴运算时都用此轴上的第一组值</p>
-</li>
-</ol>
-<p><br></p>
-<h1 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h1><hr>
-<ol>
-<li><p><code>np.random.rand(d0, d1, d2)</code> : 从 <code>uniform</code> 分布中抽出形状为 <code>(d0, d1, d2)</code> 的样本数组，形状为空则返回标量</p>
-</li>
-<li><p><code>np.random.randn(d0, d1, d2)</code> : 从标准正态分布中抽出形状为 <code>(d0, d1, d2)</code> 的样本数组，形状为空则返回标量</p>
-</li>
-<li><p><code>np.random.RandomState()</code> : 固定随机状态允许我们复现某一次随机过程的结果。实例化一个 <code>RandomState</code> 对象, 此后我们可以用这个对象替代 <code>np.random</code> 来调用 <code>np.random</code> 下的函数, 比如 <code>np.random.rand</code></p>
-</li>
-</ol>
-<p><br></p>
-<h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><hr>
-<ol>
-<li><p><code>np.unique()</code> : 不重复元素</p>
-</li>
-<li><p><code>np.sort()</code> : 排序</p>
-</li>
-<li><p><code>np.argsort()</code> : 按照元素值的大小将索引排序</p>
-</li>
-<li><p><code>np.bincount()</code> : 自然数数组中各元素的频次</p>
-</li>
-<li><p><code>.T</code> : 转置</p>
-</li>
-<li><p><code>np.linalg.inv()</code> : 求逆矩阵，<code>np.linalg.pinv()</code> 是求伪逆</p>
-</li>
-</ol>
+<h1 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h1><p>返回一个四维的张量</p>
+<p>第一个数是 <code>batch</code> 的大小，也就是有几组数据；后三个数表示一个张量的大小</p>
 
     </article>
     <!-- license  -->
@@ -576,17 +460,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA/" title= "机器学习 01：感知机">
-                    <div class="nextTitle">机器学习 01：感知机</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2021/04/25/Python-%E5%AD%A6%E4%B9%A0-07%EF%BC%9A%E6%A8%A1%E5%9D%97/" title= "Python-学习-07：模块">
-                    <div class="prevTitle">Python-学习-07：模块</div>
+                <a href= "/2021/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-05%EF%BC%9A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA./" title= "机器学习 05：非线性支持向量机">
+                    <div class="prevTitle">机器学习 05：非线性支持向量机</div>
                 </a>
             
         </li>
@@ -717,7 +596,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84-ndarray"><span class="toc-number">1.</span> <span class="toc-text">多维数组 ndarray</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8E%E5%88%87%E7%89%87"><span class="toc-number">3.</span> <span class="toc-text">索引与切片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E7%B4%A2%E5%BC%95"><span class="toc-number">3.1.</span> <span class="toc-text">多维索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0-ndarray"><span class="toc-number">3.2.</span> <span class="toc-text">更新 ndarray</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E8%BF%9B%E9%98%B6"><span class="toc-number">3.3.</span> <span class="toc-text">索引进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95"><span class="toc-number">3.3.1.</span> <span class="toc-text">整数数组索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E7%B4%A2%E5%BC%95"><span class="toc-number">3.3.2.</span> <span class="toc-text">条件索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%9D%A1%E4%BB%B6%E7%AD%9B%E9%80%89%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.3.</span> <span class="toc-text">一些条件筛选函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E7%BB%B4%E5%BA%A6%E4%B8%8E%E8%BD%B4-Axis"><span class="toc-number">4.</span> <span class="toc-text">数组的维度与轴 Axis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E5%8F%98-ndarray-%E7%9A%84%E5%BD%A2%E7%8A%B6"><span class="toc-number">4.1.</span> <span class="toc-text">改变 ndarray 的形状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%B4"><span class="toc-number">4.2.</span> <span class="toc-text">加轴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD"><span class="toc-number">5.</span> <span class="toc-text">广播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">常用方法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tf-keras-layers-Conv2D-%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">tf.keras.layers.Conv2D() 函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text">返回值</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
