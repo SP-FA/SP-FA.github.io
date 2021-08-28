@@ -28,7 +28,7 @@
 <meta property="og:description" content="tf.keras.layers.Conv2D() 函数Conv2D （二维卷积层） 这一层创建了一个卷积核，它与这一层的输入卷积以产生一个输出张量 当使用此层作为模型的第一层时，提供关键字参数 input_shape (整数元组，不包括样本轴，不需要写batch_size) 12345678910111213141516def __init__(self, filters,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-28T07:23:10.000Z">
-<meta property="article:modified_time" content="2021-07-28T07:31:44.522Z">
+<meta property="article:modified_time" content="2021-08-28T10:26:42.057Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -291,7 +291,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">767</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">765</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -422,7 +422,7 @@ height:50vh;
 <p><br></p>
 <h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><strong>filters</strong></p>
 <p>int 类型，表示卷积核个数，filters 影响的是最后输入结果的的第四个维度的变化</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Conv2D</span><br><span class="line"></span><br><span class="line">input_shape = (<span class="number">4</span>, <span class="number">600</span>, <span class="number">600</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">input</span> = tf.random.normal(input_shape)</span><br><span class="line">x = keras.layers.Conv2D(<span class="number">64</span>, (<span class="number">1</span>, <span class="number">1</span>), strides=(<span class="number">1</span>, <span class="number">1</span>), name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(x.shape)</span><br><span class="line"></span><br><span class="line">OUTPUT:</span><br><span class="line">(<span class="number">4</span>, <span class="number">600</span>, <span class="number">600</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Conv2D</span><br><span class="line"></span><br><span class="line">input_shape = (<span class="number">4</span>, <span class="number">600</span>, <span class="number">600</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">input</span> = tf.random.normal(input_shape)</span><br><span class="line">x = Conv2D(<span class="number">64</span>, (<span class="number">1</span>, <span class="number">1</span>), strides=(<span class="number">1</span>, <span class="number">1</span>), name=<span class="string">&#x27;conv1&#x27;</span>)(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(x.shape)</span><br><span class="line"></span><br><span class="line">OUTPUT:</span><br><span class="line">(<span class="number">4</span>, <span class="number">600</span>, <span class="number">600</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p><strong>kernel_size</strong></p>
 <p>表示卷积核的大小，如果是方阵可以直接写成一个数，影响的是输出结果中间两个数据的维度</p>
@@ -459,6 +459,11 @@ height:50vh;
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2021/07/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06%EF%BC%9ASMO%E7%AE%97%E6%B3%95/" title= "机器学习 06：SMO 算法">
+                    <div class="nextTitle">机器学习 06：SMO 算法</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -796,6 +801,8 @@ top:50vh;
     
     
     
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 17
@@ -818,6 +825,11 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/30</span><a class="archive-post-title" href= "/2021/07/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06%EF%BC%9ASMO%E7%AE%97%E6%B3%95/" >机器学习 06：SMO 算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/28</span><a class="archive-post-title" href= "/2021/07/28/keras.layers.Conv2D()-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" >keras.layers.Conv2D() 函数参数</a>
         </li>
     
@@ -829,11 +841,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2021/07/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04%EF%BC%9A%E8%BD%AF%E9%97%B4%E9%9A%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" >机器学习 04：软间隔支持向量机</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2021/07/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06%EF%BC%9ASMO%E7%AE%97%E6%B3%95/" >机器学习 06：SMO 算法</a>
         </li>
     
     

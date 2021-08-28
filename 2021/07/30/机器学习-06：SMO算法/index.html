@@ -20,15 +20,15 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="概述： $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就">
+    <meta name="description" content="概述 $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习 06：SMO 算法">
-<meta property="og:url" content="https://sp-fa.github.io/2021/07/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06%EF%BC%9ASMO%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:url" content="https://sp-fa.github.io/2021/07/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06%EF%BC%9ASMO%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概述： $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就">
+<meta property="og:description" content="概述 $SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k&#x3D;1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就变">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-14T06:32:18.000Z">
-<meta property="article:modified_time" content="2021-07-19T14:18:53.666Z">
+<meta property="article:published_time" content="2021-07-30T06:08:53.000Z">
+<meta property="article:modified_time" content="2021-08-01T09:51:27.086Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -288,12 +288,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">233</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">915</span>Reading time: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2021/07/14</span>
+                    <span class="post-intro-time">2021/07/30</span>
                     
                     <span class="shareWrapper">
                         <span class="iconfont-archer shareIcon">&#xe71d;</span>
@@ -412,14 +412,50 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h1><hr>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><hr>
 <p>$SMO$ 是由 $Platt$ 在 1998 年提出的、针对软间隔最大化 $SVM$ 对偶问题求解的一个算法，其基本思想很简单：如果所有变量的解都满足此优化问题的 KKT 条件，则这个优化问题的解就得到了；否则在每一步优化中，挑选出诸多参数 $\alpha_k\ (k=1,2,\cdots,n)$ 中的两个参数 $\alpha_i,\alpha_j$ 作为变量，其余参数都视为常数，问题就变成了类似于二次方程求最大值的问题，从而我们就能求出解析解，这两个变量中，一个是违反 KKT 条件最严重的那一个，另一个由约束条件自动确定一个。</p>
 <p><br></p>
-<p>#</p>
+<h1 id="选择变量的启发式方法"><a href="#选择变量的启发式方法" class="headerlink" title="选择变量的启发式方法"></a>选择变量的启发式方法</h1><hr>
+<p>先来回顾一下 $SVM$ 中的优化目标函数：</p>
+<script type="math/tex; mode=display">\min\limits_{\alpha_i\ge0}\left(\frac{1}{2}\sum\limits_{i=1}^N\sum\limits_{j=1}^N\alpha_i\alpha_jy_iy_jK(\vec x_i,\vec x_j)-\sum\limits_{i=1}^N\alpha_i\right)\\s.t. \sum\limits_{i=1}^N\alpha_iy_i=0,\ \ 0\le\alpha_i\le C</script><p>由于要满足约束 $\sum\limits_{i=1}^N\alpha_iy_i=0$，所以每次需要选取两个 $\alpha_i$ 做为变量，这一点与坐标上升法不同。</p>
+<p>要使优化目标函数有解，我们需要使其满足 $KKT$ 条件中的互补松弛：</p>
+<script type="math/tex; mode=display">\alpha_i(y_i(\vec w\cdot\phi(\vec x_i)+b)-1+\xi_i)=0</script><p>根据上面的条件我们可以得出：</p>
+<script type="math/tex; mode=display">\begin{cases}y_i(\vec w\cdot\phi(\vec x_i)+b)\ge1&\alpha_i=0\\y_i(\vec w\cdot\phi(\vec x_i)+b)=1&0\le\alpha_i\le C\\y_i(\vec w\cdot\phi(\vec x_i)+b)\le1&\alpha_i=C\end{cases}</script><p>由于 $\vec w=\sum\limits^N_{j=1}\alpha_jy_j\phi(\vec x_j)$，我们令</p>
+<script type="math/tex; mode=display">g(\vec x_i)=\vec w\cdot\phi(\vec x_i)+b=\sum\limits^N_{j=1}\alpha_jy_jK(\vec x_i,\vec x_j)+b</script><p>则可以推出以下三个条件：</p>
+<script type="math/tex; mode=display">\begin{cases}y_ig(\vec x_i)\ge1&\alpha_i=0\\y_ig(\vec x_i)=1&0\le\alpha_i\le C\\y_ig(\vec x_i)\le1&\alpha_i=C\end{cases}</script><p><br></p>
+<h2 id="选择第一个变量"><a href="#选择第一个变量" class="headerlink" title="选择第一个变量"></a>选择第一个变量</h2><hr>
+<p>在 $SMO$ 中，我们称第一个变量为外循环。外循环取的是样本中违反 $KKT$ 条件最严重的点。</p>
+<p>我们可以借助上面推出的条件来度量一个点违反 $KKT$ 条件的程度，具体来说，我们定义三份“差异向量”</p>
+<script type="math/tex; mode=display">\vec c^{(k)}=(c_1^{(k)},c_2^{(k)},\cdots,c_N^{(k)}),\ k=1,2,3\\c_i^{(k)}=y_ig(\vec x_i)-1</script><p>其中第 $k$ 个向量对应着第 $k$ 个条件。对于不同的条件，我们按不同方式将对应向量的某些位置置为 0。</p>
+<ul>
+<li><p>第一个条件：$\alpha_i=0\Rightarrow c_i^{(1)}\ge0$ 若满足：</p>
+<ul>
+<li>$\alpha_i&gt;0$ 且 $c_i^{(1)}\le0$</li>
+<li>$\alpha_i=0$ 且 $c_i^{(1)}\ge0$</li>
+</ul>
+</li>
+<li><p>第二个条件：$0\le\alpha_i\le C\Rightarrow c_i^{(2)}=0$ 若满足：</p>
+<ul>
+<li>$\alpha_i=0$ 或 $\alpha_i=C$ 且 $c_i^{(2)}\ne0$</li>
+<li>$0\le\alpha_i\le C$ 且 $c_i^{(2)}=0$</li>
+</ul>
+</li>
+<li><p>第三个条件：$\alpha_i=C\Rightarrow c_i^{(3)}\le0$</p>
+<ul>
+<li>$\alpha_i&lt; C$ 且 $c_i^{(3)}\ge0$</li>
+<li>$\alpha_i=C$ 且 $c_i^{(3)}\le0$</li>
+</ul>
+</li>
+</ul>
+<p>最后只需要将这三个差异向量的平方相加作为“损失”，从而直接选出损失最大的 $\alpha_i$ 作为外循环即可。</p>
 <p><br></p>
-<h1 id="选择变量的启发式方法："><a href="#选择变量的启发式方法：" class="headerlink" title="选择变量的启发式方法："></a>选择变量的启发式方法：</h1><hr>
-<h2 id="选择第一个变量："><a href="#选择第一个变量：" class="headerlink" title="选择第一个变量："></a>选择第一个变量：</h2><p>在 SMO 中，我们称第一个变量为外循环。外循环取的是样本中违反 KKT 条件最严重的点。</p>
-
+<h2 id="选择第二个变量"><a href="#选择第二个变量" class="headerlink" title="选择第二个变量"></a>选择第二个变量</h2><hr>
+<p>第二个变量成为内循环，只需要简单的随机选取一个即可。</p>
+<p>取出这两个变量之后，把其它变量看做常数，这样优化目标函数就变成了带约束的二次规划问题。</p>
+<p><br></p>
+<h1 id="目标函数的优化"><a href="#目标函数的优化" class="headerlink" title="目标函数的优化"></a>目标函数的优化</h1><hr>
+<p>假设选择的两个变量是 $\alpha_1,\alpha_2$，把其它的 $\alpha_i$ 都看作常数。定义 $K_{ij}=K(\vec x_i,\vec x_j)$ 那么原先的优化目标函数就成了：</p>
+<script type="math/tex; mode=display">\min\limits_{\alpha_1,\alpha_2}\frac{1}{2}K_{11}\alpha_1^2+\frac{1}{2}K_{22}\alpha_2^2+y_1y_2K_{12}\alpha_1\alpha_2-(\alpha_1+\alpha_2)+y_1\alpha_1\sum\limits^N_{i=3}y_i\alpha_iK_{i1}+y_2\alpha_2\sum\limits^N_{i=3}y_i\alpha_iK_{i2}\\s.t.\ \ \alpha_1y_1+\alpha_2y_2=-\sum\limits^N_{i=3}y_i\alpha_i=\varsigma\\0\le\alpha_i\le C,\ i=1,2</script>
     </article>
     <!-- license  -->
     
@@ -427,17 +463,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/07/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04%EF%BC%9A%E8%BD%AF%E9%97%B4%E9%9A%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" title= "机器学习 04：软间隔支持向量机">
-                    <div class="nextTitle">机器学习 04：软间隔支持向量机</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2021/06/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-03%EF%BC%9A%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" title= "机器学习 03：线性可分支持向量机">
-                    <div class="prevTitle">机器学习 03：线性可分支持向量机</div>
+                <a href= "/2021/07/28/keras.layers.Conv2D()-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title= "keras.layers.Conv2D() 函数参数">
+                    <div class="prevTitle">keras.layers.Conv2D() 函数参数</div>
                 </a>
             
         </li>
@@ -568,7 +599,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">概述：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%8F%98%E9%87%8F%E7%9A%84%E5%90%AF%E5%8F%91%E5%BC%8F%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">选择变量的启发式方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">选择第一个变量：</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%8F%98%E9%87%8F%E7%9A%84%E5%90%AF%E5%8F%91%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">选择变量的启发式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">选择第一个变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.</span> <span class="toc-text">选择第二个变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">目标函数的优化</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -581,6 +612,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -790,6 +823,11 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/30</span><a class="archive-post-title" href= "/2021/07/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06%EF%BC%9ASMO%E7%AE%97%E6%B3%95/" >机器学习 06：SMO 算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/28</span><a class="archive-post-title" href= "/2021/07/28/keras.layers.Conv2D()-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" >keras.layers.Conv2D() 函数参数</a>
         </li>
     
@@ -801,11 +839,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2021/07/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-04%EF%BC%9A%E8%BD%AF%E9%97%B4%E9%9A%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" >机器学习 04：软间隔支持向量机</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2021/07/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-06%EF%BC%9ASMO%E7%AE%97%E6%B3%95/" >机器学习 06：SMO 算法</a>
         </li>
     
     
