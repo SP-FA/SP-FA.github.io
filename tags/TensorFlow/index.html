@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://sp-fa.github.io/tags/TensorFlow/index.html">
+<meta property="og:url" content="https://sp-fa.github.io/tags/tensorflow/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -354,30 +354,31 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/07/28/keras.layers.Conv2D()-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" >
+        <a class="abstract-title" href = "/2021/10/07/%E9%94%99%E9%A2%98%E6%9C%AC/" >
             
-                <span>keras.layers.Conv2D() 函数参数</span>
+                <span>错题本</span>
         </a>
         <div class="abstract-content">
-            tf.keras.layers.Conv2D() 函数Conv2D （二维卷积层）
-这一层创建了一个卷积核，它与这一层的输入卷积以产生一个输出张量
-当使用此层作为模型的第一层时，提供关键字参数 input_shape (整数元组，不包括样本轴，不需要写batch_size)
-12345678910111213141516def __init__(self, filters,         ...
+            
+暂且开辟一块文章记录遇到过的 error 和解决方法。杂七杂八的错误先放到一篇文章里，随着之后的积累再进行分类整理。
+
+
+
+0x01报错信息
+$\color{blue}{\text{InvalidArgumentError: Matrix size-incompatible: In[0]: [1,7], In[1]: [1,7]}}$
+出现位置
+1model.compile(loss=&#...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/07/28</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/07</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "机器学习">机器学习</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "TensorFlow">TensorFlow</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "tensorflow">tensorflow</a>
     
 </div>
             
@@ -678,9 +679,28 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 18
         </div>
         <!-- search  -->
         
@@ -697,6 +717,11 @@
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2021/10/07/%E9%94%99%E9%A2%98%E6%9C%AC/" >错题本</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -798,6 +823,8 @@
     
         <span class="sidebar-tag-name" data-tags="TensorFlow"><span class="iconfont-archer">&#xe606;</span>TensorFlow</span>
     
+        <span class="sidebar-tag-name" data-tags="tensorflow"><span class="iconfont-archer">&#xe606;</span>tensorflow</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -836,6 +863,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="TensorFlow"><span class="iconfont-archer">&#xe60a;</span>TensorFlow</span>
     
         <span class="sidebar-category-name" data-categories="机器学习"><span class="iconfont-archer">&#xe60a;</span>机器学习</span>
+    
+        <span class="sidebar-category-name" data-categories="tensorflow"><span class="iconfont-archer">&#xe60a;</span>tensorflow</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
