@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://sp-fa.github.io/categories/tensorflow/index.html">
+<meta property="og:url" content="https://sp-fa.github.io/categories/TensorFlow/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -354,25 +354,30 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/10/07/%E9%94%99%E9%A2%98%E6%9C%AC/" >
+        <a class="abstract-title" href = "/2021/07/28/keras.layers.Conv2D()-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" >
             
-                <span>错题本</span>
+                <span>keras.layers.Conv2D() 函数参数</span>
         </a>
         <div class="abstract-content">
-            <blockquote>
-<p>暂且开辟一块文章记录遇到过的 error 和解决方法。杂七杂八的错误先放到一篇文章里，随着之后的积累再进行分类整理。</p>
-</blockquote>
+            tf.keras.layers.Conv2D() 函数Conv2D （二维卷积层）
+这一层创建了一个卷积核，它与这一层的输入卷积以产生一个输出张量
+当使用此层作为模型的第一层时，提供关键字参数 input_shape (整数元组，不包括样本轴，不需要写batch_size)
+12345678910111213141516def __init__(self, filters,         ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/07</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/07/28</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "tensorflow">tensorflow</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "机器学习">机器学习</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "TensorFlow">TensorFlow</a>
     
 </div>
             
@@ -705,9 +710,24 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 19
+        Total : 20
         </div>
         <!-- search  -->
         
@@ -724,6 +744,11 @@
     
     <div class="archive-year"> 2022 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/28</span><a class="archive-post-title" href= "/2022/05/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-08%EF%BC%9APCA/" >机器学习 08：PCA</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -946,23 +971,6 @@ jsonContent:
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
-</body>
-</html>
-
-
-', 'pre', 'code'],
             processEscapes: true
         }
     });
