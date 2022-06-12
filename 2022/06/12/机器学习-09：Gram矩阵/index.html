@@ -20,23 +20,24 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="主要思想 设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y$ 为标签 在线性可分的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得： \mathrm{sign}(\vec w\cdot\vec x+b)&#x3D;\begin{cases}1&amp;\ge0\\-1&amp;">
+    <meta name="description" content="n 维欧式空间中任意 k 个向量之间两两内积所组成的矩阵，称为这 k 个向量的 Gram 矩阵。Gram 矩阵可以反映出特征两两之间的相关性，常用于图像风格迁移领域。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习 01：感知机">
-<meta property="og:url" content="https://sp-fa.github.io/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA/index.html">
+<meta property="og:title" content="机器学习 09：Gram 矩阵">
+<meta property="og:url" content="https://sp-fa.github.io/2022/06/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-09%EF%BC%9AGram%E7%9F%A9%E9%98%B5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="主要思想 设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y$ 为标签 在线性可分的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得： \mathrm{sign}(\vec w\cdot\vec x+b)&#x3D;\begin{cases}1&amp;\ge0\\-1&amp;">
+<meta property="og:description" content="n 维欧式空间中任意 k 个向量之间两两内积所组成的矩阵，称为这 k 个向量的 Gram 矩阵。Gram 矩阵可以反映出特征两两之间的相关性，常用于图像风格迁移领域。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-10T07:21:05.000Z">
-<meta property="article:modified_time" content="2021-07-21T02:44:53.103Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1219fad40e47415d9af84a4e8fe5d2a5.png">
+<meta property="article:published_time" content="2022-06-12T08:56:45.000Z">
+<meta property="article:modified_time" content="2022-06-12T09:03:07.865Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/1219fad40e47415d9af84a4e8fe5d2a5.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>机器学习 01：感知机 · 欢迎来到 SP-FA 的博客 ~</title>
+    <title>机器学习 09：Gram 矩阵 · 欢迎来到 SP-FA 的博客 ~</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -231,7 +232,7 @@
                 <a href="/" >SP-FA 的博客</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">机器学习 01：感知机</a>
+                <a href="#" class="post-name">机器学习 09：Gram 矩阵</a>
             </div>
     </div>
     
@@ -261,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            机器学习 01：感知机
+            机器学习 09：Gram 矩阵
             <!-- 404 -->
             
         </h1>
@@ -280,20 +281,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "机器学习">机器学习</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">62</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">479</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2021/06/10</span>
+                    <span class="post-intro-time">2022/06/12</span>
                     
                     <span class="shareWrapper">
                         <span class="iconfont-archer shareIcon">&#xe71d;</span>
@@ -412,25 +411,22 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a>主要思想</h1><hr>
-<p>设 $\vec w$ 为权重项，$b$ 为偏置项，$\vec x$ 为特征值，$y$ 为标签</p>
-<p>在<strong>线性可分</strong>的情况下，拟合线性函数 $\vec w\cdot\vec x+b$，使得：</p>
-<script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)=\begin{cases}1&\ge0\\-1&<0\end{cases}</script><p>也就是：</p>
-<script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)y\ge0</script><p><br></p>
-<h1 id="误分类点"><a href="#误分类点" class="headerlink" title="误分类点"></a>误分类点</h1><hr>
-<p>根据上文，很容易知道对于一个特征向量 $\vec x$ 如果误分类了，则会有：</p>
-<script type="math/tex; mode=display">\mathrm{sign}(\vec w\cdot\vec x+b)y<0</script><p>借此可以很方便的找出误分类点。</p>
+        <p>n 维欧式空间中任意 k 个向量之间两两内积所组成的矩阵，称为这 k 个向量的 Gram 矩阵。Gram 矩阵可以反映出特征两两之间的相关性，常用于图像风格迁移领域。</p>
+<span id="more"></span>
+<h1 id="关于-Gram-矩阵"><a href="#关于-Gram-矩阵" class="headerlink" title="关于 Gram 矩阵"></a>关于 Gram 矩阵</h1><hr>
+<blockquote>
+<p>n 维欧式空间中任意 k 个向量之间两两内积所组成的矩阵，称为这 k 个向量的 Gram 矩阵。</p>
+</blockquote>
+<p>向量内积公式：</p>
+<script type="math/tex; mode=display">\vec a\cdot\vec b=\sum\limits_{i=1}^na_ib_i</script><p>所以 Gram 矩阵的公式就是：</p>
+<script type="math/tex; mode=display">Gram(\vec a_1\cdots\vec a_k)=\begin{pmatrix}(\vec a_1\cdot\vec a_1)&\cdots&(\vec a_1\cdot\vec a_k)\\\vdots&\ddots&\vdots\\(\vec a_k\cdot\vec a_1)&\cdots&(\vec a_k\cdot\vec a_k)\end{pmatrix}</script><p><img src="https://img-blog.csdnimg.cn/1219fad40e47415d9af84a4e8fe5d2a5.png" alt="在这里插入图片描述"></p>
+<p>可以看出，Gram 矩阵是一个对称矩阵。</p>
+<p>Gram 矩阵可以看作是数据之间的偏心协方差矩阵（即没有减去均值的协方差矩阵，关于协方差矩阵可以看<a target="_blank" rel="noopener" href="https://blog.csdn.net/SP_FA/article/details/125009113?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22125009113%22%2C%22source%22%3A%22SP_FA%22%7D&amp;ctrtid=wgswd">这篇文章</a>）</p>
 <p><br></p>
-<h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><hr>
-<p>把误分类点到线性函数的距离作为误差，组成损失函数：</p>
-<script type="math/tex; mode=display">lossFunc=-\frac{(\vec w\cdot\vec x+b)y}{\parallel w\parallel_2}</script><p><br></p>
-<h1 id="更新权重项与偏置项"><a href="#更新权重项与偏置项" class="headerlink" title="更新权重项与偏置项"></a>更新权重项与偏置项</h1><hr>
-<p>采用梯度下降的方法进行更新。设 $L(\vec w,b) = lossFunc$ 我们要使 $L(\vec w,b)$ 的值尽量小，则可以求其梯度的负数 $-\nabla L$ 即为该函数下降最快的方向，但是注意，<strong>通过这个方法可能无法到达全局最优点，可能会到达局部最优点或鞍点</strong>。不过这无所谓，对于感知机来说这就足够了。</p>
-<script type="math/tex; mode=display">\begin{aligned}-\nabla L&=<\vec xy,y>\\\vec w&=\vec w+\alpha\vec xy\\b&=b+\alpha y\end{aligned}</script><p>其中 $\alpha$ 是学习率，要注意 $\vec xy$ 是一个向量。</p>
-<p>模板：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">X_train = np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line">Y_train = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">perceptron</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, X, Y, Alpha = <span class="number">0.01</span></span>):</span> <span class="comment"># X, Y can be list or numpy.ndarray</span></span><br><span class="line">        self.alpha = Alpha</span><br><span class="line">        self.X_trn = np.array(X)</span><br><span class="line">        self.Y_trn = np.array(Y)</span><br><span class="line">        self.B = np.random.rand()</span><br><span class="line">        self.W = np.random.rand(<span class="built_in">len</span>(X[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">self, i</span>):</span></span><br><span class="line">        Sum = np.dot(self.W, self.X_trn[i]) + self.B</span><br><span class="line">        <span class="keyword">if</span> (Sum * self.Y_trn[i] &gt;= <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Loss_func</span>(<span class="params">self, i</span>):</span></span><br><span class="line">        self.W += self.alpha * self.X_trn[i] * self.Y_trn[i]</span><br><span class="line">        self.B += self.alpha * self.Y_trn[i]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span>(<span class="params">self</span>):</span></span><br><span class="line">        Error = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">while</span> (Error):</span><br><span class="line">            Error = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(self.X_trn)):</span><br><span class="line">                <span class="keyword">if</span> (self.check(i) == <span class="literal">False</span>):</span><br><span class="line">                    self.Loss_func(i)</span><br><span class="line">                    Error = <span class="literal">True</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;W: &quot;</span>, self.W, <span class="string">&quot;\tB: &quot;</span>, self.B)</span><br><span class="line"></span><br><span class="line">per = perceptron(X_train, Y_train, <span class="number">0.01</span>)</span><br><span class="line">per.train()</span><br></pre></td></tr></table></figure>
-<p>以及调库实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Perceptron</span><br><span class="line"></span><br><span class="line">My_Data = datasets.load_iris()</span><br><span class="line">clf = Perceptron()</span><br><span class="line">x = My_Data[<span class="string">&#x27;data&#x27;</span>]</span><br><span class="line">y = My_Data[<span class="string">&#x27;target&#x27;</span>]</span><br><span class="line">train_x, test_x, train_y, test_y = train_test_split(x, y, test_size = <span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">clf.fit(train_x, train_y)</span><br><span class="line">clf.predict(test_x)</span><br><span class="line"><span class="built_in">print</span>(clf.score(test_x, test_y))</span><br></pre></td></tr></table></figure>
+<h1 id="Gram-矩阵的应用"><a href="#Gram-矩阵的应用" class="headerlink" title="Gram 矩阵的应用"></a>Gram 矩阵的应用</h1><hr>
+<p>对于一组特征，我们计算它的 Gram 矩阵，可以反映出特征两两之间的相关性。对角线上的元素可以理解为该特征的信息，其余元素则提供了不同特征相关性信息，这样一个矩阵既能体现出有哪些特征，又能反映出不同特征之间的紧密程度。</p>
+<p>Gram 矩阵最直接的应用是在图像风格迁移领域。对于一张图片，我们想要提取它的风格，就需要使用网络提取局部纹理特征、图像轮廓等信息，然后计算 Gram 矩阵，就可以找出特征之间的相关性，这个计算出的 Gram 矩阵就反映了图像的风格。此时如果要比较两张图片之间的风格相似程度，只需要比较它们的 Gram 矩阵，若 Gram 矩阵的差异较小，则可以认为两张图像风格相近。</p>
+
     </article>
     <!-- license  -->
     
@@ -438,17 +434,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-02%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F/" title= "机器学习 02：感知机的对偶形式">
-                    <div class="nextTitle">机器学习 02：感知机的对偶形式</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2021/05/20/Python-Package-Numpy/" title= "Python Package：NumPy">
-                    <div class="prevTitle">Python Package：NumPy</div>
+                <a href= "/2022/05/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-08%EF%BC%9APCA/" title= "机器学习 08：PCA">
+                    <div class="prevTitle">机器学习 08：PCA</div>
                 </a>
             
         </li>
@@ -465,8 +456,8 @@ height:50vh;
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         
         var disqus_config = function () {
-        this.page.url = "https://sp-fa.github.io/2021/06/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-01%EF%BC%9A%E6%84%9F%E7%9F%A5%E6%9C%BA/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "机器学习 01：感知机"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://sp-fa.github.io/2022/06/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-09%EF%BC%9AGram%E7%9F%A9%E9%98%B5/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "机器学习 09：Gram 矩阵"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
         
         (function () { // DON'T EDIT BELOW THIS LINE
@@ -600,7 +591,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%80%9D%E6%83%B3"><span class="toc-number">1.</span> <span class="toc-text">主要思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AF%E5%88%86%E7%B1%BB%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">误分类点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">损失函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%9D%83%E9%87%8D%E9%A1%B9%E4%B8%8E%E5%81%8F%E7%BD%AE%E9%A1%B9"><span class="toc-number">4.</span> <span class="toc-text">更新权重项与偏置项</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-Gram-%E7%9F%A9%E9%98%B5"><span class="toc-number">1.</span> <span class="toc-text">关于 Gram 矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Gram-%E7%9F%A9%E9%98%B5%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">Gram 矩阵的应用</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
